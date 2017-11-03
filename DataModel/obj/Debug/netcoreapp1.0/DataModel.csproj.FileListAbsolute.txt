@@ -1,0 +1,7 @@
+D:\Projects\Workshop\LC_ServerSide\DataModel\bin\Debug\netcoreapp1.0\DataModel.deps.json
+D:\Projects\Workshop\LC_ServerSide\DataModel\obj\Debug\netcoreapp1.0\DataModel.csprojResolveAssemblyReference.cache
+D:\Projects\Workshop\LC_ServerSide\DataModel\obj\Debug\netcoreapp1.0\DataModel.AssemblyInfo.cs
+D:\Projects\Workshop\LC_ServerSide\DataModel\bin\Debug\netcoreapp1.0\DataModel.dll
+D:\Projects\Workshop\LC_ServerSide\DataModel\bin\Debug\netcoreapp1.0\DataModel.pdb
+D:\Projects\Workshop\LC_ServerSide\DataModel\obj\Debug\netcoreapp1.0\DataModel.dll
+D:\Projects\Workshop\LC_ServerSide\DataModel\obj\Debug\netcoreapp1.0\DataModel.pdb

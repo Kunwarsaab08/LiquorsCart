@@ -1,0 +1,9 @@
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.deps.json
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.runtimeconfig.json
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.runtimeconfig.dev.json
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.dll
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.pdb
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.csprojResolveAssemblyReference.cache
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.AssemblyInfo.cs
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.dll
+D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.pdb

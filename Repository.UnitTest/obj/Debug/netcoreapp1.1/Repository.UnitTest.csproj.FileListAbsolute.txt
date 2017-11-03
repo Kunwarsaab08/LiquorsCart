@@ -1,0 +1,5 @@
+D:\Projects\Workshop\LC_ServerSide\Repository.UnitTest\bin\Debug\netcoreapp1.1\Repository.UnitTest.deps.json
+D:\Projects\Workshop\LC_ServerSide\Repository.UnitTest\bin\Debug\netcoreapp1.1\Repository.UnitTest.runtimeconfig.json
+D:\Projects\Workshop\LC_ServerSide\Repository.UnitTest\bin\Debug\netcoreapp1.1\Repository.UnitTest.runtimeconfig.dev.json
+D:\Projects\Workshop\LC_ServerSide\Repository.UnitTest\obj\Debug\netcoreapp1.1\Repository.UnitTest.csprojResolveAssemblyReference.cache
+D:\Projects\Workshop\LC_ServerSide\Repository.UnitTest\obj\Debug\netcoreapp1.1\Repository.UnitTest.AssemblyInfo.cs
