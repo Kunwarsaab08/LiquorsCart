@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataModel.DataModels
+namespace Repository
 {
-    public class MasterDM
+    public interface IEntity
     {
+        Guid Id { get; set; }
     }
 }

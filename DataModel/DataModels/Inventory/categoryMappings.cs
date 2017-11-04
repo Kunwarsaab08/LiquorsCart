@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class categoryMappings
+    public class CategoryMappings : MasterDM
     {
-        public int categoryMappingId { get; set; }
+        [Key]
+        public int CategoryMappingId { get; set; }
 
-        public int mainCategoryId { get; set; }
+        public Category MainCategoryId { get; set; }
 
-        public int subCategoryId { get; set; }
+        public SubCategory SubCategoryId { get; set; }
 
-        public int typeCategoryId { get; set; }
+        public TypeCategory TypeCategoryId { get; set; }
 
-        public bool categoryMappingIsActive { get; set; }
+        public bool CategoryMappingIsActive { get; set; }
 
-        public DateTime categoryMappingCreatedDate { get; set; }
+        public DateTime? CategoryMappingCreatedDate { get; set; }
 
-        public DateTime? categoryMappingChangeDate { get; set; }
+        public DateTime? CategoryMappingChangeDate { get; set; }
 
-        public int categoryChangeBy { get; set; }
+        public int CategoryChangeBy { get; set; }
     }
 }

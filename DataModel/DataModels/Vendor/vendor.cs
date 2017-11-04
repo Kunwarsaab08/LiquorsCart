@@ -1,45 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Vendor
 {
-    public class vendor
+    public class Vendor : MasterDM
     {
-        public int vendorID { get; set; }
+        [Key]
+        public int VendorID { get; set; }
 
-        public string vendorName { get; set; }
+        public string VendorName { get; set; }
 
-        public string vendorAddress1 { get; set; }
+        public string VendorAddress1 { get; set; }
 
-        public string vemdorAddress2 { get; set; }
+        public string VemdorAddress2 { get; set; }
 
-        public string vendorAddress3 { get; set; }
+        public string VendorAddress3 { get; set; }
 
-        public string vendorZIPcode { get; set; }
+        public string VendorZIPcode { get; set; }
 
-        public string vendorOwnerName { get; set; }
+        public string VendorOwnerName { get; set; }
 
-        public string vendorOwnerPhoneNo { get; set; }
+        public string VendorOwnerPhoneNo { get; set; }
 
-        public string vendorShopPhoneNo { get; set; }
+        public string VendorShopPhoneNo { get; set; }
 
-        public string vendorTINno { get; set; }
+        public string VendorTINno { get; set; }
 
-        public string vendorPANno { get; set; }
+        public string VendorPANno { get; set; }
 
-        public string vendorTANno { get; set; }
+        public string VendorTANno { get; set; }
 
-        public string vendorSALESTAXno { get; set; }
+        public string VendorSALESTAXno { get; set; }
 
-        public string vendorLicenceno { get; set; }
+        public string VendorLicenceno { get; set; }
 
-        public bool vendorIsActive { get; set; }
+        public bool VendorIsActive { get; set; }
 
-        public DateTime vendorCreatedDate { get; set; }
+        public DateTime? VendorCreatedDate { get; set; }
 
-        public DateTime? vendorChangeDate { get; set; }
+        public DateTime? VendorChangeDate { get; set; }
 
-        public int vendorChangeBy { get; set; }
+        public int VendorChangeBy { get; set; }
     }
 }

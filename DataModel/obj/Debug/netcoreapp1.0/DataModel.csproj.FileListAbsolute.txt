@@ -5,3 +5,12 @@ D:\Projects\Workshop\LC_ServerSide\DataModel\bin\Debug\netcoreapp1.0\DataModel.d
 D:\Projects\Workshop\LC_ServerSide\DataModel\bin\Debug\netcoreapp1.0\DataModel.pdb
 D:\Projects\Workshop\LC_ServerSide\DataModel\obj\Debug\netcoreapp1.0\DataModel.dll
 D:\Projects\Workshop\LC_ServerSide\DataModel\obj\Debug\netcoreapp1.0\DataModel.pdb
+E:\Projects\Workshop\LiquorsCart\DataModel\bin\Debug\netcoreapp1.0\DataModel.deps.json
+E:\Projects\Workshop\LiquorsCart\DataModel\bin\Debug\netcoreapp1.0\DataModel.dll
+E:\Projects\Workshop\LiquorsCart\DataModel\bin\Debug\netcoreapp1.0\DataModel.pdb
+E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.csprojResolveAssemblyReference.cache
+E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.csproj.CoreCompileInputs.cache
+E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.AssemblyInfoInputs.cache
+E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.AssemblyInfo.cs
+E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.dll
+E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.pdb

@@ -4,24 +4,24 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataModel.Mappings.Inventory
 {
-    public class subCategoryMAP : IEntityMappingConfiguration<subCategory>
+    public class SubCategoryMAP : IEntityMappingConfiguration<SubCategory>
     {
-        public void Map(EntityTypeBuilder<subCategory> builder)
+        public void Map(EntityTypeBuilder<SubCategory> builder)
         {
             builder.ToTable("SubCategoryMaster");
-            builder.HasKey(m => m.subCategoryId);
-            builder.Property(m => m.subCategoryId).HasColumnName("SubCategoryId");
-            builder.Property(m => m.subCategoryName).IsRequired().HasColumnName("SubCategoryName");
-            builder.Property(m => m.subCategoryDescription).IsRequired().HasColumnName("SubCategoryDescription");
-            builder.Property(m => m.subCategorySEOId).HasColumnName("SubCategorySEOId");
-            builder.Property(m => m.subCategoryImageId).HasColumnName("SubCategoryImageId");
-            builder.Property(m => m.subCategoryIsParent).IsRequired().HasColumnName("SubCategoryIsParent");
-            builder.Property(m => m.subCategoryParentId).HasColumnName("SubCategoryParentId");
-            builder.Property(m => m.subCategoryIsMenu).IsRequired().HasColumnName("SubCategoryIsMenu");
-            builder.Property(m => m.subCategoryIsActive).IsRequired().HasColumnName("SubCategoryIsActive");
-            builder.Property(m => m.subCategoryCreatedDate).HasColumnName("SubCategoryCreatedDate");
-            builder.Property(m => m.subCategoryChangeDate).IsRequired().HasColumnName("SubCategoryChangedDate");
-            builder.Property(m => m.subCategoryChangeBy).HasColumnName("SubCategoryChangedBy");
+            builder.HasKey(m => m.SubCategoryId);
+            builder.Property(m => m.SubCategoryId).HasColumnName("SubCategoryId");
+            builder.Property(m => m.SubCategoryName).IsRequired().HasColumnName("SubCategoryName");
+            builder.Property(m => m.SubCategoryDescription).IsRequired().HasColumnName("SubCategoryDescription");
+            builder.Property(m => m.SubCategorySEOId.SeoId).HasColumnName("SubCategorySEOId");
+            builder.Property(m => m.SubCategoryImageId.ImageId).HasColumnName("SubCategoryImageId");
+            builder.Property(m => m.SubCategoryIsParent).IsRequired().HasColumnName("SubCategoryIsParent");
+            builder.Property(m => m.SubCategoryParentId).HasColumnName("SubCategoryParentId");
+            builder.Property(m => m.SubCategoryIsMenu).IsRequired().HasColumnName("SubCategoryIsMenu");
+            builder.Property(m => m.SubCategoryIsActive).IsRequired().HasColumnName("SubCategoryIsActive");
+            builder.Property(m => m.SubCategoryCreatedDate).HasColumnName("SubCategoryCreatedDate");
+            builder.Property(m => m.SubCategoryChangeDate).IsRequired().HasColumnName("SubCategoryChangedDate");
+            builder.Property(m => m.SubCategoryChangeBy).HasColumnName("SubCategoryChangedBy");
         }
     }
 }

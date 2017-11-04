@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class company
+    public class Company : MasterDM
     {
-        public int companyId { get; set; }
+        [Key]
+        public int CompanyId { get; set; }
 
-        public string companyName { get; set; }
+        public string CompanyName { get; set; }
 
-        public string companyDescription { get; set; }
+        public string CompanyDescription { get; set; }
 
-        public int companySEOId { get; set; }
+        public int CompanySEOId { get; set; }
 
-        public int companyImageId { get; set; }
+        public int CompanyImageId { get; set; }
 
-        public bool companyIsMenu { get; set; }
+        public bool CompanyIsMenu { get; set; }
 
-        public bool companyIsActive { get; set; }
+        public bool CompanyIsActive { get; set; }
 
-        public DateTime companyCreatedDate { get; set; }
+        public DateTime? CompanyCreatedDate { get; set; }
 
-        public DateTime? companyChangeDate { get; set; }
+        public DateTime? CompanyChangeDate { get; set; }
 
-        public int companyChangeBy { get; set; }
+        public int CompanyChangeBy { get; set; }
     }
 }

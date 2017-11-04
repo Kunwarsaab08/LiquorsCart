@@ -4,17 +4,17 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataModel.Mappings.Inventory
 {
-    public class seoRepositoryMAP : IEntityMappingConfiguration<seoRepository>
+    public class SeoRepositoryMAP : IEntityMappingConfiguration<SeoRepository>
     {
-        public void Map(EntityTypeBuilder<seoRepository> builder)
+        public void Map(EntityTypeBuilder<SeoRepository> builder)
         {
             builder.ToTable("SEORepository");
-            builder.HasKey(m => m.seoId);
-            builder.Property(m => m.seoId).HasColumnName("(SEOid");
-            builder.Property(m => m.seoPageTitle).HasColumnName("SEOPageTitle");
-            builder.Property(m => m.seoDescriptionTag).HasColumnName("SEODescriptionTag");
-            builder.Property(m => m.seoMetaTag).HasColumnName("SEOMetaTag");
-            builder.Property(m => m.seoKeywords).HasColumnName("SEOKeywords");
+            builder.HasKey(m => m.SeoId);
+            builder.Property(m => m.SeoId).HasColumnName("(SEOid");
+            builder.Property(m => m.SeoPageTitle).HasColumnName("SEOPageTitle");
+            builder.Property(m => m.SeoDescriptionTag).HasColumnName("SEODescriptionTag");
+            builder.Property(m => m.SeoMetaTag).HasColumnName("SEOMetaTag");
+            builder.Property(m => m.SeoKeywords).HasColumnName("SEOKeywords");
         }
     }
 }

@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class productSKUDiscount
+    public class ProductSKUDiscount : MasterDM
     {
-        public int productSKUDiscountId { get; set; }
+        [Key]
+        public int ProductSKUDiscountId { get; set; }
 
-        public int productSKUID { get; set; }
+        public ProductSKU ProductSKUID { get; set; }
 
-        public decimal productSKUDiscountPercent { get; set; }
+        public decimal ProductSKUDiscountPercent { get; set; }
 
-        public bool productSKUDiscountIsActive { get; set; }
+        public bool ProductSKUDiscountIsActive { get; set; }
 
-        public DateTime productSKUDiscountCreatedDate { get; set; }
+        public DateTime? ProductSKUDiscountCreatedDate { get; set; }
 
-        public DateTime? productSKUDiscountChangeDate { get; set; }
+        public DateTime? ProductSKUDiscountChangeDate { get; set; }
 
-        public int productSKUDiscountChangeBy { get; set; }
+        public int ProductSKUDiscountChangeBy { get; set; }
     }
 }

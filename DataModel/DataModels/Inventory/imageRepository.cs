@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class imageRepository
+    public class ImageRepository : MasterDM
     {
-        public int imageId { get; set; }
+        [Key]
+        public int ImageId { get; set; }
 
-        public string imageLogoIcon { get; set; }
+        public string ImageLogoIcon { get; set; }
 
-        public string imageSmallUrl { get; set; }
+        public string ImageSmallUrl { get; set; }
 
-        public string imageLargeUrl { get; set; }
+        public string ImageLargeUrl { get; set; }
     }
 }

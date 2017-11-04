@@ -4,16 +4,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataModel.Mappings.Inventory
 {
-    public class imageRepositoryMAP : IEntityMappingConfiguration<imageRepository>
+    public class ImageRepositoryMAP : IEntityMappingConfiguration<ImageRepository>
     {
-        public void Map(EntityTypeBuilder<imageRepository> builder)
+        public void Map(EntityTypeBuilder<ImageRepository> builder)
         {
             builder.ToTable("ImageRepository");
-            builder.HasKey(m => m.imageId);
-            builder.Property(m => m.imageId).HasColumnName("(ImageId");
-            builder.Property(m => m.imageLogoIcon).HasColumnName("ImageLogoIconUrl");
-            builder.Property(m => m.imageSmallUrl).HasColumnName("ImageSmall");
-            builder.Property(m => m.imageLargeUrl).HasColumnName("ImageUrl");
+            builder.HasKey(m => m.ImageId);
+            builder.Property(m => m.ImageId).HasColumnName("(ImageId");
+            builder.Property(m => m.ImageLogoIcon).HasColumnName("ImageLogoIconUrl");
+            builder.Property(m => m.ImageSmallUrl).HasColumnName("ImageSmall");
+            builder.Property(m => m.ImageLargeUrl).HasColumnName("ImageUrl");
         }
     }
 }

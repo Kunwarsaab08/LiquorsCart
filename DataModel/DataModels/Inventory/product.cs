@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class product
+    public class Product : MasterDM
     {
-        public int productId { get; set; }
+        [Key]
+        public int ProductId { get; set; }
 
-        public string productName { get; set; }
+        public string ProductName { get; set; }
 
-        public string productDescription { get; set; }
+        public string ProductDescription { get; set; }
 
-        public int productSEOId { get; set; }
+        public SeoRepository ProductSEOId { get; set; }
 
-        public int productImageId { get; set; }
+        public ImageRepository ProductImageId { get; set; }
 
-        public bool productIsActive { get; set; }
+        public bool ProductIsActive { get; set; }
 
-        public bool productIsMenu { get; set; }
+        public bool ProductIsMenu { get; set; }
 
-        public DateTime productCreatedDate { get; set; }
+        public DateTime? ProductCreatedDate { get; set; }
 
-        public DateTime? productChangedDate { get; set; }
+        public DateTime? ProductChangedDate { get; set; }
 
-        public int productChangedBy { get; set; }
+        public int ProductChangedBy { get; set; }
     }
 }

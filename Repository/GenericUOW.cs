@@ -44,7 +44,7 @@ namespace Repository
             disposed = true;
         }
 
-        public GenericRepository<T> GenericRepository<T>() where T : masterDM
+        public GenericRepository<T> GenericRepository<T>() where T : MasterDM, new()
         {
             if (repositories == null)
             {

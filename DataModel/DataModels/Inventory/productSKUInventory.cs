@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class productSKUInventory
+    public class ProductSKUInventory : MasterDM
     {
-        public int productSKUInventoryId { get; set; }
+        [Key]
+        public int ProductSKUInventoryId { get; set; }
 
-        public int productSKUId { get; set; }
+        public ProductSKU ProductSKUId { get; set; }
 
-        public int productSKUQty { get; set; }
+        public int ProductSKUQty { get; set; }
 
-        public int productSKUMinOrderQty { get; set; }
+        public int ProductSKUMinOrderQty { get; set; }
 
-        public int productSKUMinLevelIndicator { get; set; }
+        public int ProductSKUMinLevelIndicator { get; set; }
 
-        public DateTime productSKUInventoryCreatedDate { get; set; }
+        public DateTime? ProductSKUInventoryCreatedDate { get; set; }
 
-        public DateTime? productSKUInventoryChangeDate { get; set; }
+        public DateTime? ProductSKUInventoryChangeDate { get; set; }
 
-        public int productSKUInventoryChangeBy { get; set; }
+        public int ProductSKUInventoryChangeBy { get; set; }
     }
 }

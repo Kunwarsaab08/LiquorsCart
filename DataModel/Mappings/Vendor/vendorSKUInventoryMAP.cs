@@ -5,20 +5,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataModel.Mappings.Vendor
 {
-    public class vendorSKUInventoryMAP : IEntityMappingConfiguration<vendorSKU>
+    public class VendorSKUInventoryMAP : IEntityMappingConfiguration<VendorSKU>
     {
-        public void Map(EntityTypeBuilder<vendorSKU> builder)
+        public void Map(EntityTypeBuilder<VendorSKU> builder)
         {
             builder.ToTable("SKUVendor");
-            builder.HasKey(m => m.vendorSKUID);
-            builder.Property(m => m.vendorSKUID).HasColumnName("SKUVendorId");
-            builder.Property(m => m.vendorId).IsRequired().HasColumnName("VendorID ");
-            builder.Property(m => m.vendorSKUProductID).HasColumnName("SKUID");
-            builder.Property(m => m.vendorSKUProductQty).HasColumnName("SKUVendorQty");
-            builder.Property(m => m.vendorSKUIsActive).HasColumnName("SKUVendorIsActive");
-            builder.Property(m => m.vendorSKUCreatedDate).HasColumnName("SKUVendorCreatedOn");
-            builder.Property(m => m.vendorSKUChangeDate).HasColumnName("SKUVendorChangedOn");
-            builder.Property(m => m.vendorSKKUChangeBy).HasColumnName("SKUVendorChangedBy");
+            builder.HasKey(m => m.VendorSKUID);
+            builder.Property(m => m.VendorSKUID).HasColumnName("SKUVendorId");
+            builder.Property(m => m.VendorId.VendorID).IsRequired().HasColumnName("VendorID ");
+            builder.Property(m => m.VendorSKUProductID.ProductSKUID).HasColumnName("SKUID");
+            builder.Property(m => m.VendorSKUProductQty).HasColumnName("SKUVendorQty");
+            builder.Property(m => m.VendorSKUIsActive).HasColumnName("SKUVendorIsActive");
+            builder.Property(m => m.VendorSKUCreatedDate).HasColumnName("SKUVendorCreatedOn");
+            builder.Property(m => m.VendorSKUChangeDate).HasColumnName("SKUVendorChangedOn");
+            builder.Property(m => m.VendorSKKUChangeBy).HasColumnName("SKUVendorChangedBy");
         }
     }
 }

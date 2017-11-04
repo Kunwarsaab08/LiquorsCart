@@ -1,27 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class productSKU
+    public class ProductSKU : MasterDM
     {
-        public int productSKUID { get; set; }
+        [Key]
+        public int ProductSKUID { get; set; }
 
-        public int productSKUCompanyId { get; set; }
+        public Company ProductSKUCompanyId { get; set; }
 
-        public int productSKUBrandId { get; set; }
+        public Brand ProductSKUBrandId { get; set; }
 
-        public int productSKUProductId { get; set; }
+        public Product ProductSKUProductId { get; set; }
 
-        public int  productSKUCategoryMappingId { get; set; }
+        public CategoryMappings  ProductSKUCategoryMappingId { get; set; }
 
-        public bool productSKUISActive { get; set; }
+        public bool ProductSKUISActive { get; set; }
 
-        public DateTime productSKUCreatedDate { get; set; }
+        public DateTime? ProductSKUCreatedDate { get; set; }
 
-        public DateTime? productSKUChangeDate { get; set; }
+        public DateTime? ProductSKUChangeDate { get; set; }
 
-        public int productSKUChangeBY { get; set; }
+        public int ProductSKUChangeBY { get; set; }
     }
 }

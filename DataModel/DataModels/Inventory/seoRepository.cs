@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class seoRepository
+    public class SeoRepository : MasterDM
     {
-        public int seoId { get; set; }
+        [Key]
+        public int SeoId { get; set; }
 
-        public string seoPageTitle { get; set; }
+        public string SeoPageTitle { get; set; }
 
-        public string seoDescriptionTag { get; set; }
+        public string SeoDescriptionTag { get; set; }
 
-        public string seoMetaTag { get; set; }
+        public string SeoMetaTag { get; set; }
 
-        public string seoKeywords { get; set; }
+        public string SeoKeywords { get; set; }
     }
 }

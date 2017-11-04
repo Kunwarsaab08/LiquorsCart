@@ -7,3 +7,14 @@ D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_Serv
 D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.AssemblyInfo.cs
 D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.dll
 D:\Projects\Workshop\LC_ServerSide\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.pdb
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.deps.json
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.runtimeconfig.json
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.runtimeconfig.dev.json
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.dll
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\bin\Debug\netcoreapp1.0\LC_ServerSide.pdb
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.csprojResolveAssemblyReference.cache
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.csproj.CoreCompileInputs.cache
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.AssemblyInfoInputs.cache
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.AssemblyInfo.cs
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.dll
+E:\Projects\Workshop\LiquorsCart\LC_ServerSide\obj\Debug\netcoreapp1.0\LC_ServerSide.pdb

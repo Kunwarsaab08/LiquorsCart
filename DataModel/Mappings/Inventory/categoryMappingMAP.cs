@@ -4,20 +4,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataModel.Mappings.Inventory
 {
-    public class categoryMappingMAP : IEntityMappingConfiguration<categoryMappings>
+    public class CategoryMappingMAP : IEntityMappingConfiguration<CategoryMappings>
     {
-        public void Map(EntityTypeBuilder<categoryMappings> builder)
+        public void Map(EntityTypeBuilder<CategoryMappings> builder)
         {
             builder.ToTable("CategoryMappings");
-            builder.HasKey(m => m.categoryMappingId);
-            builder.Property(m => m.categoryMappingId).HasColumnName("(CategoryMappingId");
-            builder.Property(m => m.mainCategoryId).HasColumnName("CategoryId");
-            builder.Property(m => m.subCategoryId).HasColumnName("SubCategoryId");
-            builder.Property(m => m.typeCategoryId).HasColumnName("TypeCategoryId");
-            builder.Property(m => m.categoryMappingIsActive).IsRequired().HasColumnName("CategoryMappingIsActive");
-            builder.Property(m => m.categoryMappingCreatedDate).HasColumnName("CategoryMappingCreatedDate ");
-            builder.Property(m => m.categoryMappingChangeDate).IsRequired().HasColumnName("CategoryMappingChangedDate");
-            builder.Property(m => m.categoryChangeBy).HasColumnName("CategoryMappingChangedBy");
+            builder.HasKey(m => m.CategoryMappingId);
+            builder.Property(m => m.CategoryMappingId).HasColumnName("(CategoryMappingId");
+            builder.Property(m => m.MainCategoryId.CategoryId).HasColumnName("CategoryId");
+            builder.Property(m => m.SubCategoryId.SubCategoryId).HasColumnName("SubCategoryId");
+            builder.Property(m => m.TypeCategoryId.TypeCategoryId).HasColumnName("TypeCategoryId");
+            builder.Property(m => m.CategoryMappingIsActive).IsRequired().HasColumnName("CategoryMappingIsActive");
+            builder.Property(m => m.CategoryMappingCreatedDate).HasColumnName("CategoryMappingCreatedDate ");
+            builder.Property(m => m.CategoryMappingChangeDate).IsRequired().HasColumnName("CategoryMappingChangedDate");
+            builder.Property(m => m.CategoryChangeBy).HasColumnName("CategoryMappingChangedBy");
         }
     }
 }

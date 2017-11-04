@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Repository
 {
-    public class GenericRepository<T> where T : masterDM
+    public class GenericRepository<T> : IGenericRepository<T> where T : MasterDM, new()
     {
         private readonly DbContext _dbContext;
         private DbSet<T> entities;
@@ -19,21 +19,12 @@ namespace Repository
             this._dbContext = dbContext;
         }
 
-        public T GetById(object id)
-        {
-            return this.Entities.Find(id);
-        }
-
-        public void Insert(T entity)
+        public async Task Delete(T entity)
         {
             try
-            {
-                if (entity == null)
-                {
-                    throw new ArgumentNullException("entity");
-                }
-                this.Entities.Add(entity);
-                this._dbContext.SaveChanges();
+            { 
+                _dbContext.Set<T>().Remove(entity);
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception dbEx)
             {
@@ -41,40 +32,44 @@ namespace Repository
             }
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
             try
             {
-                if (entity == null)
-                {
-                    throw new ArgumentNullException("entity");
-                }
-                this._dbContext.SaveChanges();
+                _dbContext.Set<T>().Update(entity);
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception dbEx)
             {
                 throw dbEx;
-            }
+            }            
         }
 
-        public void Delete(T entity)
+        public async Task Save(T entity)
         {
             try
             {
-                if (entity == null)
-                {
-                    throw new ArgumentNullException("entity");
-                }
-
-                this.Entities.Remove(entity);
-                this._dbContext.SaveChanges();
+                _dbContext.Set<T>().Add(entity);
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception dbEx)
             {
                 throw dbEx;
-            }
+            }            
         }
 
+        public IEnumerable<T> FindAll()
+        {
+            try
+            {
+                return  _dbContext.Set<T>().ToList();
+            }
+            catch (Exception dbEx)
+            {
+                throw dbEx;
+            }            
+        }
+                              
         public virtual IQueryable<T> Table
         {
             get

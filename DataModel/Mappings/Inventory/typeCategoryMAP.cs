@@ -5,24 +5,24 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataModel.Mappings.Inventory
 {
-    public class typeCategoryMAP : IEntityMappingConfiguration<typeCategory>
+    public class TypeCategoryMAP : IEntityMappingConfiguration<TypeCategory>
     {
-        public void Map(EntityTypeBuilder<typeCategory> builder)
+        public void Map(EntityTypeBuilder<TypeCategory> builder)
         {
             builder.ToTable("TypeCategoryMaster");
-            builder.HasKey(m => m.typeCategoryId);
-            builder.Property(m => m.typeCategoryId).HasColumnName("TypeCategoryId");
-            builder.Property(m => m.typeCategoryName).IsRequired().HasColumnName("TypeCategoryName");
-            builder.Property(m => m.typeCategoryDescription).IsRequired().HasColumnName("TypeCategoryDescription");
-            builder.Property(m => m.typeCategorySEOId).HasColumnName("TypeCategorySEOId");
-            builder.Property(m => m.typeCategoryImageId).HasColumnName("TypeCategoryImageId");
-            builder.Property(m => m.typeCategoryIsParent).IsRequired().HasColumnName("TypeCategoryIsParent");
-            builder.Property(m => m.typeCategoryParentId).HasColumnName("TypeCategoryParentId");
-            builder.Property(m => m.typeCategoryIsMenu).IsRequired().HasColumnName("TypeCategoryIsMenu");
-            builder.Property(m => m.typeCategoryIsActive).IsRequired().HasColumnName("TypeCategoryIsActive");
-            builder.Property(m => m.typeCategoryCreatedDate).HasColumnName("TypeCategoryCreatedDate");
-            builder.Property(m => m.typeCategoryChangeDate).IsRequired().HasColumnName("TypeCategoryChangedDate");
-            builder.Property(m => m.typeCategoryChangeBy).HasColumnName("TypeCategoryChangedBy");
+            builder.HasKey(m => m.TypeCategoryId);
+            builder.Property(m => m.TypeCategoryId).HasColumnName("TypeCategoryId");
+            builder.Property(m => m.TypeCategoryName).IsRequired().HasColumnName("TypeCategoryName");
+            builder.Property(m => m.TypeCategoryDescription).IsRequired().HasColumnName("TypeCategoryDescription");
+            builder.Property(m => m.TypeCategorySEOId.SeoId).HasColumnName("TypeCategorySEOId");
+            builder.Property(m => m.TypeCategoryImageId.ImageId).HasColumnName("TypeCategoryImageId");
+            builder.Property(m => m.TypeCategoryIsParent).IsRequired().HasColumnName("TypeCategoryIsParent");
+            builder.Property(m => m.TypeCategoryParentId).HasColumnName("TypeCategoryParentId");
+            builder.Property(m => m.TypeCategoryIsMenu).IsRequired().HasColumnName("TypeCategoryIsMenu");
+            builder.Property(m => m.TypeCategoryIsActive).IsRequired().HasColumnName("TypeCategoryIsActive");
+            builder.Property(m => m.TypeCategoryCreatedDate).HasColumnName("TypeCategoryCreatedDate");
+            builder.Property(m => m.TypeCategoryChangeDate).IsRequired().HasColumnName("TypeCategoryChangedDate");
+            builder.Property(m => m.TypeCategoryChangeBy).HasColumnName("TypeCategoryChangedBy");
         }
     }
 }

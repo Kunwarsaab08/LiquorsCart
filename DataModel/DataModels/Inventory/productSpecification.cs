@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class productSpecification
+    public class ProductSpecification : MasterDM
     {
-        public int productSpecificationID { get; set; }
+        [Key]
+        public int ProductSpecificationID { get; set; }
 
-        public int productID { get; set; }
+        public Product ProductID { get; set; }
 
-        public int productSpecificationsID { get; set; }
+        public Specification ProductSpecificationsID { get; set; }
 
-        public int productSpecificationValuesID { get; set; }
+        public int ProductSpecificationValuesID { get; set; }
 
-        public bool productSpecificationISActive { get; set; }
+        public bool ProductSpecificationISActive { get; set; }
 
-        public DateTime productSpecificationCreatedDate { get; set; }
+        public DateTime? ProductSpecificationCreatedDate { get; set; }
 
-        public DateTime? productSpecificationChangeDate { get; set; }
+        public DateTime? ProductSpecificationChangeDate { get; set; }
 
-        public int productSpecificationChangeBy { get; set; }        
+        public int ProductSpecificationChangeBy { get; set; }        
     }
 }

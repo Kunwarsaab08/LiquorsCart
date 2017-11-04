@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class subCategory
+    public class SubCategory : MasterDM
     {
-        public int subCategoryId { get; set; }
+        [Key]
+        public int SubCategoryId { get; set; }
 
-        public string subCategoryName { get; set; }
+        public string SubCategoryName { get; set; }
 
-        public string subCategoryDescription { get; set; }
+        public string SubCategoryDescription { get; set; }
 
-        public int subCategorySEOId { get; set; }
+        public SeoRepository SubCategorySEOId { get; set; }
 
-        public int subCategoryImageId { get; set; }
+        public ImageRepository SubCategoryImageId { get; set; }
 
-        public bool subCategoryIsParent { get; set; }
+        public bool SubCategoryIsParent { get; set; }
 
-        public int subCategoryParentId { get; set; }
+        public int SubCategoryParentId { get; set; }
 
-        public bool subCategoryIsMenu { get; set; }
+        public bool SubCategoryIsMenu { get; set; }
 
-        public bool subCategoryIsActive { get; set; }
+        public bool SubCategoryIsActive { get; set; }
 
-        public DateTime subCategoryCreatedDate { get; set; }
+        public DateTime? SubCategoryCreatedDate { get; set; }
 
-        public DateTime? subCategoryChangeDate { get; set; }
+        public DateTime? SubCategoryChangeDate { get; set; }
 
-        public int subCategoryChangeBy { get; set; }
+        public int SubCategoryChangeBy { get; set; }
     }
 }

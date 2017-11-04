@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Inventory
 {
-    public class category : masterDM
+    public class Category : MasterDM
     {
-        public int categoryId { get; set; }
+        [Key]
+        public int CategoryId { get; set; }
 
-        public string categoryName { get; set; }
+        public string CategoryName { get; set; }
 
-        public string categoryDescription { get; set; }
+        public string CategoryDescription { get; set; }
 
-        public int categorySEOId { get; set; }
+        public int CategorySEOId { get; set; }
 
-        public int  categoryImageId { get; set; }
+        public int  CategoryImageId { get; set; }
 
-        public bool categoryIsParent { get; set; }
+        public bool CategoryIsParent { get; set; }
 
-        public int categoryParentId { get; set; }
+        public int CategoryParentId { get; set; }
 
-        public bool categoryIsMenu { get; set; }
+        public bool CategoryIsMenu { get; set; }
 
-        public bool categoryIsActive { get; set; }
+        public bool CategoryIsActive { get; set; }
 
-        public DateTime categoryCreatedDate { get; set; }
+        public DateTime? CategoryCreatedDate { get; set; }
 
-        public DateTime ? categoryChangeDate { get; set; }
+        public DateTime? CategoryChangeDate { get; set; }
 
-        public int categoryChangeBy { get; set; }
+        public int CategoryChangeBy { get; set; }
     }
 }

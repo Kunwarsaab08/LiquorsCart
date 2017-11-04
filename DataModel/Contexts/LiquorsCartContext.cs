@@ -40,9 +40,6 @@ namespace DataModel.Contexts
                 _created = true;
             }
         }
-        
-
-        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -53,23 +50,26 @@ namespace DataModel.Contexts
         {
             base.OnModelCreating(builder);
             
-            EntityMappingExtensions.RegisterEntityMapping<category, categoryMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<subCategory, subCategoryMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<typeCategory, typeCategoryMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<categoryMappings, categoryMappingMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<company, companyMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<brand, brandMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<product, productMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<imageRepository, imageRepositoryMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<seoRepository, seoRepositoryMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<productSKU, productSKUMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<specification, specificationMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<specificationValue, specificationValuesMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<productSpecification, productSpecificationValueMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<productSKUInventory, productSKUInventoryMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<productSKUDiscount, productSKUDiscountMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<vendor, vendorMAP>(builder);
-            EntityMappingExtensions.RegisterEntityMapping<vendorSKU, vendorSKUInventoryMAP>(builder);
+            //Inventory
+            EntityMappingExtensions.RegisterEntityMapping<Category, CategoryMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<SubCategory, SubCategoryMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<TypeCategory, TypeCategoryMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<CategoryMappings, CategoryMappingMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<Company, CompanyMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<Brand, BrandMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<Product, ProductMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<ImageRepository, ImageRepositoryMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<SeoRepository, SeoRepositoryMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<ProductSKU, ProductSKUMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<Specification, SpecificationMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<SpecificationValue, SpecificationValuesMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<ProductSpecification, ProductSpecificationMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<ProductSKUInventory, ProductSKUInventoryMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<ProductSKUDiscount, ProductSKUDiscountMAP>(builder);
+
+            //Vendor
+            EntityMappingExtensions.RegisterEntityMapping<Vendor, VendorMAP>(builder);
+            EntityMappingExtensions.RegisterEntityMapping<VendorSKU, VendorSKUInventoryMAP>(builder);
         }
     }
 }

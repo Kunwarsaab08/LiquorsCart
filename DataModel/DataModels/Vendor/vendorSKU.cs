@@ -2,25 +2,27 @@
 using System.Collections.Generic;
 using System.Text;
 using DataModel.DataModels.Inventory;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataModel.DataModels.Vendor
 {
-    public class vendorSKU
+    public class VendorSKU : MasterDM
     {
-        public int vendorSKUID { get; set; }
+        [Key]
+        public int VendorSKUID { get; set; }
 
-        public int vendorId { get; set; }
+        public Vendor VendorId { get; set; }
 
-        public int vendorSKUProductID { get; set; }
+        public ProductSKU VendorSKUProductID { get; set; }
 
-        public int vendorSKUProductQty { get; set; }
+        public int VendorSKUProductQty { get; set; }
 
-        public bool vendorSKUIsActive { get; set; }
+        public bool VendorSKUIsActive { get; set; }
 
-        public DateTime vendorSKUCreatedDate { get; set; }
+        public DateTime? VendorSKUCreatedDate { get; set; }
 
-        public DateTime? vendorSKUChangeDate { get; set; }
+        public DateTime? VendorSKUChangeDate { get; set; }
 
-        public int vendorSKKUChangeBy { get; set; }
+        public int VendorSKKUChangeBy { get; set; }
     }
 }

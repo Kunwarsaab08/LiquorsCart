@@ -7,3 +7,14 @@ D:\Projects\Workshop\LC_ServerSide\Repository\bin\Debug\netcoreapp1.1\DataModel.
 D:\Projects\Workshop\LC_ServerSide\Repository\bin\Debug\netcoreapp1.1\DataModel.pdb
 D:\Projects\Workshop\LC_ServerSide\Repository\obj\Debug\netcoreapp1.1\Repository.dll
 D:\Projects\Workshop\LC_ServerSide\Repository\obj\Debug\netcoreapp1.1\Repository.pdb
+E:\Projects\Workshop\LiquorsCart\Repository\bin\Debug\netcoreapp1.1\Repository.deps.json
+E:\Projects\Workshop\LiquorsCart\Repository\bin\Debug\netcoreapp1.1\Repository.dll
+E:\Projects\Workshop\LiquorsCart\Repository\bin\Debug\netcoreapp1.1\Repository.pdb
+E:\Projects\Workshop\LiquorsCart\Repository\bin\Debug\netcoreapp1.1\DataModel.dll
+E:\Projects\Workshop\LiquorsCart\Repository\bin\Debug\netcoreapp1.1\DataModel.pdb
+E:\Projects\Workshop\LiquorsCart\Repository\obj\Debug\netcoreapp1.1\Repository.csprojResolveAssemblyReference.cache
+E:\Projects\Workshop\LiquorsCart\Repository\obj\Debug\netcoreapp1.1\Repository.csproj.CoreCompileInputs.cache
+E:\Projects\Workshop\LiquorsCart\Repository\obj\Debug\netcoreapp1.1\Repository.AssemblyInfoInputs.cache
+E:\Projects\Workshop\LiquorsCart\Repository\obj\Debug\netcoreapp1.1\Repository.AssemblyInfo.cs
+E:\Projects\Workshop\LiquorsCart\Repository\obj\Debug\netcoreapp1.1\Repository.dll
+E:\Projects\Workshop\LiquorsCart\Repository\obj\Debug\netcoreapp1.1\Repository.pdb
