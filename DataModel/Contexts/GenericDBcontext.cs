@@ -3,13 +3,14 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using DataModel;
-using DataModel.DataModels;
+using LiquorsCart.ServerSide.DataModel;
+using LiquorsCart.ServerSide.DataModel.DataModels;
 
-namespace Repository
+namespace LiquorsCart.ServerSide.DataModel.Context
 {
     public class GenericDBcontext : DbContext
     {
+        //To ensure one instance will serve all request from a clent.
         private static bool _created = false;
         public GenericDBcontext()
         {

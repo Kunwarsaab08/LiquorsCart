@@ -1,8 +1,8 @@
-﻿using DataModel.DataModels.Inventory;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class SubCategoryMAP : IEntityMappingConfiguration<SubCategory>
     {
@@ -13,8 +13,8 @@ namespace DataModel.Mappings.Inventory
             builder.Property(m => m.SubCategoryId).HasColumnName("SubCategoryId");
             builder.Property(m => m.SubCategoryName).IsRequired().HasColumnName("SubCategoryName");
             builder.Property(m => m.SubCategoryDescription).IsRequired().HasColumnName("SubCategoryDescription");
-            builder.Property(m => m.SubCategorySEOId.SeoId).HasColumnName("SubCategorySEOId");
-            builder.Property(m => m.SubCategoryImageId.ImageId).HasColumnName("SubCategoryImageId");
+            builder.Property(m => m.SubCategorySEOId).HasColumnName("SubCategorySEOId");
+            builder.Property(m => m.SubCategoryImageId).HasColumnName("SubCategoryImageId");
             builder.Property(m => m.SubCategoryIsParent).IsRequired().HasColumnName("SubCategoryIsParent");
             builder.Property(m => m.SubCategoryParentId).HasColumnName("SubCategoryParentId");
             builder.Property(m => m.SubCategoryIsMenu).IsRequired().HasColumnName("SubCategoryIsMenu");

@@ -14,3 +14,12 @@ E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.Ass
 E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.AssemblyInfo.cs
 E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.dll
 E:\Projects\Workshop\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.pdb
+C:\Shekhar\LiquorsCart\DataModel\bin\Debug\netcoreapp1.0\DataModel.deps.json
+C:\Shekhar\LiquorsCart\DataModel\bin\Debug\netcoreapp1.0\DataModel.dll
+C:\Shekhar\LiquorsCart\DataModel\bin\Debug\netcoreapp1.0\DataModel.pdb
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.csprojResolveAssemblyReference.cache
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.csproj.CoreCompileInputs.cache
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.AssemblyInfoInputs.cache
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.AssemblyInfo.cs
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.dll
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp1.0\DataModel.pdb

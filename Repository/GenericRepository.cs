@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using DataModel.DataModels;
+using LiquorsCart.ServerSide.DataModel.DataModels;
 using System.Linq;
 
-namespace Repository
+namespace LiquorsCart.ServerSide.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : MasterDM, new()
     {

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class ProductSKUDiscount : MasterDM
     {
         [Key]
         public int ProductSKUDiscountId { get; set; }
 
-        public ProductSKU ProductSKUID { get; set; }
+        public int ProductSKUID { get; set; }
 
         public decimal ProductSKUDiscountPercent { get; set; }
 

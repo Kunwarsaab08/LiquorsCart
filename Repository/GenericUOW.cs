@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DataModel.DataModels;
+using LiquorsCart.ServerSide.DataModel.DataModels;
+using LiquorsCart.ServerSide.DataModel.Context;
 
-namespace Repository
+namespace LiquorsCart.ServerSide.Repository
 {
     public class GenericUOW : IDisposable
     {

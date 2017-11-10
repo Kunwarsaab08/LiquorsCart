@@ -1,8 +1,8 @@
-﻿using DataModel.DataModels.Inventory;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class SeoRepositoryMAP : IEntityMappingConfiguration<SeoRepository>
     {

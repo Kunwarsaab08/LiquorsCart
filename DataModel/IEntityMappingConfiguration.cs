@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataModel
+namespace LiquorsCart.ServerSide.DataModel
 {
     public interface IEntityMappingConfiguration<T> where T : class
     {

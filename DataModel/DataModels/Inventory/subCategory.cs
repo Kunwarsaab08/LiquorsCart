@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class SubCategory : MasterDM
     {
@@ -14,9 +14,9 @@ namespace DataModel.DataModels.Inventory
 
         public string SubCategoryDescription { get; set; }
 
-        public SeoRepository SubCategorySEOId { get; set; }
+        public int SubCategorySEOId { get; set; }
 
-        public ImageRepository SubCategoryImageId { get; set; }
+        public int SubCategoryImageId { get; set; }
 
         public bool SubCategoryIsParent { get; set; }
 

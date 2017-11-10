@@ -1,9 +1,9 @@
 ﻿using System;
-using DataModel.DataModels.Inventory;
+using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class ProductSKUDiscountMAP : IEntityMappingConfiguration<ProductSKUDiscount>
     {
@@ -12,7 +12,7 @@ namespace DataModel.Mappings.Inventory
             builder.ToTable("SKUDiscount");
             builder.HasKey(m => m.ProductSKUDiscountId);
             builder.Property(m => m.ProductSKUDiscountId).HasColumnName("DiscountId");
-            builder.Property(m => m.ProductSKUID.ProductSKUID).IsRequired().HasColumnName("SKUID ");
+            builder.Property(m => m.ProductSKUID).IsRequired().HasColumnName("SKUID ");
             builder.Property(m => m.ProductSKUDiscountPercent).HasColumnName("SKUDiscountPercent");
             builder.Property(m => m.ProductSKUDiscountIsActive).HasColumnName("SKUDiscountIsActive");
             builder.Property(m => m.ProductSKUDiscountCreatedDate).HasColumnName("SKUDiscountCreatedOn");

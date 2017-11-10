@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class Product : MasterDM
     {
@@ -14,9 +14,9 @@ namespace DataModel.DataModels.Inventory
 
         public string ProductDescription { get; set; }
 
-        public SeoRepository ProductSEOId { get; set; }
+        public int ProductSEOId { get; set; }
 
-        public ImageRepository ProductImageId { get; set; }
+        public int ProductImageId { get; set; }
 
         public bool ProductIsActive { get; set; }
 

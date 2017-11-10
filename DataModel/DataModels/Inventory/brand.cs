@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class Brand : MasterDM
     {
-        public Company  Company { get; set; }
+        public int  CompanyId { get; set; }
 
         [Key]
         public int BrandId { get; set; }

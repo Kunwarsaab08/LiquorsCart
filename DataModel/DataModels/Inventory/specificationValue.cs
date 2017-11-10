@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class SpecificationValue : MasterDM
     {
         [Key]
         public int SpecificationValueId { get; set; }
 
-        public Specification SpecificationDesc { get; set; }
+        public string SpecificationDesc { get; set; }
 
         public bool  SpecificationValuesIsActive { get; set; }
 

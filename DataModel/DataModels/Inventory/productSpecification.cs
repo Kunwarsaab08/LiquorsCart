@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class ProductSpecification : MasterDM
     {
         [Key]
         public int ProductSpecificationID { get; set; }
 
-        public Product ProductID { get; set; }
+        public int ProductID { get; set; }
 
-        public Specification ProductSpecificationsID { get; set; }
+        public int ProductSpecificationsID { get; set; }
 
         public int ProductSpecificationValuesID { get; set; }
 

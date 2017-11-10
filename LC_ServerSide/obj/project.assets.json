@@ -8411,7 +8411,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kunwarsaab\\.nuget\\packages\\": {}
+    "C:\\Users\\chandra.s.rajput\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -8419,14 +8419,14 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Workshop\\LiquorsCart\\LC_ServerSide\\LC_ServerSide.csproj",
+      "projectUniqueName": "C:\\Shekhar\\LiquorsCart\\LC_ServerSide\\LC_ServerSide.csproj",
       "projectName": "LC_ServerSide",
-      "projectPath": "E:\\Projects\\Workshop\\LiquorsCart\\LC_ServerSide\\LC_ServerSide.csproj",
-      "packagesPath": "C:\\Users\\Kunwarsaab\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Workshop\\LiquorsCart\\LC_ServerSide\\obj\\",
+      "projectPath": "C:\\Shekhar\\LiquorsCart\\LC_ServerSide\\LC_ServerSide.csproj",
+      "packagesPath": "C:\\Users\\chandra.s.rajput\\.nuget\\packages\\",
+      "outputPath": "C:\\Shekhar\\LiquorsCart\\LC_ServerSide\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kunwarsaab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chandra.s.rajput\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -1,8 +1,8 @@
-﻿using DataModel.DataModels.Inventory;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class CategoryMappingMAP : IEntityMappingConfiguration<CategoryMappings>
     {
@@ -11,9 +11,9 @@ namespace DataModel.Mappings.Inventory
             builder.ToTable("CategoryMappings");
             builder.HasKey(m => m.CategoryMappingId);
             builder.Property(m => m.CategoryMappingId).HasColumnName("(CategoryMappingId");
-            builder.Property(m => m.MainCategoryId.CategoryId).HasColumnName("CategoryId");
-            builder.Property(m => m.SubCategoryId.SubCategoryId).HasColumnName("SubCategoryId");
-            builder.Property(m => m.TypeCategoryId.TypeCategoryId).HasColumnName("TypeCategoryId");
+            builder.Property(m => m.MainCategoryId).HasColumnName("CategoryId");
+            builder.Property(m => m.SubCategoryId).HasColumnName("SubCategoryId");
+            builder.Property(m => m.TypeCategoryId).HasColumnName("TypeCategoryId");
             builder.Property(m => m.CategoryMappingIsActive).IsRequired().HasColumnName("CategoryMappingIsActive");
             builder.Property(m => m.CategoryMappingCreatedDate).HasColumnName("CategoryMappingCreatedDate ");
             builder.Property(m => m.CategoryMappingChangeDate).IsRequired().HasColumnName("CategoryMappingChangedDate");

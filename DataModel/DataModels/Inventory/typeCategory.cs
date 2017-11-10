@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class TypeCategory : MasterDM
     {
@@ -14,9 +14,9 @@ namespace DataModel.DataModels.Inventory
 
         public string TypeCategoryDescription { get; set; }
 
-        public SeoRepository TypeCategorySEOId { get; set; }
+        public int TypeCategorySEOId { get; set; }
 
-        public ImageRepository TypeCategoryImageId { get; set; }
+        public int TypeCategoryImageId { get; set; }
 
         public bool TypeCategoryIsParent { get; set; }
 

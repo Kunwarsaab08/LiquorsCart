@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class ProductSKUInventory : MasterDM
     {
         [Key]
         public int ProductSKUInventoryId { get; set; }
 
-        public ProductSKU ProductSKUId { get; set; }
+        public int ProductSKUId { get; set; }
 
         public int ProductSKUQty { get; set; }
 

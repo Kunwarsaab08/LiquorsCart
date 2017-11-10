@@ -1,8 +1,9 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Repository;
-using DataModel;
-using DataModel.DataModels.Inventory;
+using LiquorsCart.ServerSide.DataModel;
+using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
+using LiquorsCart.ServerSide.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

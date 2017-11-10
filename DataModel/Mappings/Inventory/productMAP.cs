@@ -1,9 +1,9 @@
 ﻿using System;
-using DataModel.DataModels.Inventory;
+using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class ProductMAP : IEntityMappingConfiguration<Product>
     {
@@ -14,8 +14,8 @@ namespace DataModel.Mappings.Inventory
             builder.Property(m => m.ProductId).IsRequired().HasColumnName("ProductId");
             builder.Property(m => m.ProductName).IsRequired().HasColumnName("(ProductName");
             builder.Property(m => m.ProductDescription).IsRequired().HasColumnName("ProductDescription");
-            builder.Property(m => m.ProductSEOId.SeoId).HasColumnName("ProductSEOId");
-            builder.Property(m => m.ProductImageId.ImageId).HasColumnName("ProductImageId");
+            builder.Property(m => m.ProductSEOId).HasColumnName("ProductSEOId");
+            builder.Property(m => m.ProductImageId).HasColumnName("ProductImageId");
             builder.Property(m => m.ProductIsMenu).IsRequired().HasColumnName("ProductIsMenu");
             builder.Property(m => m.ProductIsActive).IsRequired().HasColumnName("ProductIsActive");
             builder.Property(m => m.ProductCreatedDate).HasColumnName("ProductCreatedDate");

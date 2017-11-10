@@ -1,9 +1,9 @@
 ﻿using System;
-using DataModel.DataModels.Inventory;
+using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class BrandMAP : IEntityMappingConfiguration<Brand>
     {
@@ -12,7 +12,7 @@ namespace DataModel.Mappings.Inventory
             builder.ToTable("BrandMaster");
             builder.HasKey(m => m.BrandId);
             builder.Property(m => m.BrandId).IsRequired().HasColumnName("BrandId");
-            builder.Property(m => m.Company.CompanyId).HasColumnName("(BrandCompanyId");            
+            builder.Property(m => m.CompanyId).HasColumnName("(BrandCompanyId");            
             builder.Property(m => m.BrandDescription).IsRequired().HasColumnName("BrandDescription");
             builder.Property(m => m.BrandSEOId).HasColumnName("BrandSEOId");
             builder.Property(m => m.BrandImageId).HasColumnName("BrandImageId");

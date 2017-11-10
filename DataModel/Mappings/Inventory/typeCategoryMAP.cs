@@ -1,9 +1,9 @@
-﻿using DataModel.DataModels.Inventory;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace DataModel.Mappings.Inventory
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
 {
     public class TypeCategoryMAP : IEntityMappingConfiguration<TypeCategory>
     {
@@ -14,8 +14,8 @@ namespace DataModel.Mappings.Inventory
             builder.Property(m => m.TypeCategoryId).HasColumnName("TypeCategoryId");
             builder.Property(m => m.TypeCategoryName).IsRequired().HasColumnName("TypeCategoryName");
             builder.Property(m => m.TypeCategoryDescription).IsRequired().HasColumnName("TypeCategoryDescription");
-            builder.Property(m => m.TypeCategorySEOId.SeoId).HasColumnName("TypeCategorySEOId");
-            builder.Property(m => m.TypeCategoryImageId.ImageId).HasColumnName("TypeCategoryImageId");
+            builder.Property(m => m.TypeCategorySEOId).HasColumnName("TypeCategorySEOId");
+            builder.Property(m => m.TypeCategoryImageId).HasColumnName("TypeCategoryImageId");
             builder.Property(m => m.TypeCategoryIsParent).IsRequired().HasColumnName("TypeCategoryIsParent");
             builder.Property(m => m.TypeCategoryParentId).HasColumnName("TypeCategoryParentId");
             builder.Property(m => m.TypeCategoryIsMenu).IsRequired().HasColumnName("TypeCategoryIsMenu");

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Inventory
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class ProductSKU : MasterDM
     {
         [Key]
         public int ProductSKUID { get; set; }
 
-        public Company ProductSKUCompanyId { get; set; }
+        public int ProductSKUCompanyId { get; set; }
 
-        public Brand ProductSKUBrandId { get; set; }
+        public int ProductSKUBrandId { get; set; }
 
-        public Product ProductSKUProductId { get; set; }
+        public int ProductSKUProductId { get; set; }
 
-        public CategoryMappings  ProductSKUCategoryMappingId { get; set; }
+        public int  ProductSKUCategoryMappingId { get; set; }
 
         public bool ProductSKUISActive { get; set; }
 

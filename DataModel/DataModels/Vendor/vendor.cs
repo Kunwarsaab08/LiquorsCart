@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataModel.DataModels.Vendor
+namespace LiquorsCart.ServerSide.DataModel.DataModels.Vendor
 {
     public class Vendor : MasterDM
     {

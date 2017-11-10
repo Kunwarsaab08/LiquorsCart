@@ -1,9 +1,9 @@
 ﻿using System;
-using DataModel.DataModels.Vendor;
+using LiquorsCart.ServerSide.DataModel.DataModels.Vendor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Vendor
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Vendor
 {
     public class VendorMAP : IEntityMappingConfiguration<DataModel.DataModels.Vendor.Vendor>
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using DataModel.DataModels.Vendor;
+using LiquorsCart.ServerSide.DataModel.DataModels.Vendor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataModel.Mappings.Vendor
+namespace LiquorsCart.ServerSide.DataModel.Mappings.Vendor
 {
     public class VendorSKUInventoryMAP : IEntityMappingConfiguration<VendorSKU>
     {
@@ -12,8 +12,8 @@ namespace DataModel.Mappings.Vendor
             builder.ToTable("SKUVendor");
             builder.HasKey(m => m.VendorSKUID);
             builder.Property(m => m.VendorSKUID).HasColumnName("SKUVendorId");
-            builder.Property(m => m.VendorId.VendorID).IsRequired().HasColumnName("VendorID ");
-            builder.Property(m => m.VendorSKUProductID.ProductSKUID).HasColumnName("SKUID");
+            builder.Property(m => m.VendorId).IsRequired().HasColumnName("VendorID ");
+            builder.Property(m => m.VendorSKUProductID).HasColumnName("SKUID");
             builder.Property(m => m.VendorSKUProductQty).HasColumnName("SKUVendorQty");
             builder.Property(m => m.VendorSKUIsActive).HasColumnName("SKUVendorIsActive");
             builder.Property(m => m.VendorSKUCreatedDate).HasColumnName("SKUVendorCreatedOn");

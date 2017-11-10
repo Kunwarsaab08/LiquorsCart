@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DataModel.DataModels;
+using LiquorsCart.ServerSide.DataModel.DataModels;
 
-namespace Repository
+namespace LiquorsCart.ServerSide.Repository
 {
     public interface IGenericRepository<T> where T : MasterDM, new()    
     {
