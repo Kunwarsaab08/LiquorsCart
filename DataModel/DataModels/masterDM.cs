@@ -6,5 +6,9 @@ namespace LiquorsCart.ServerSide.DataModel.DataModels
 {
     public class MasterDM
     {
+        public MasterDM()
+        {
+
+        }
     }
 }

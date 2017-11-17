@@ -2162,14 +2162,14 @@
           "bin/placeholder/LiquorsCart.ServerSide.DataModel.dll": {}
         }
       },
-      "LiquorsCart.ServerSide.DomainModel/1.0.0": {
+      "LiquorsCart.ServerSide.ViewModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "compile": {
-          "bin/placeholder/LiquorsCart.ServerSide.DomainModel.dll": {}
+          "bin/placeholder/LiquorsCart.ServerSide.ViewModel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/LiquorsCart.ServerSide.DomainModel.dll": {}
+          "bin/placeholder/LiquorsCart.ServerSide.ViewModel.dll": {}
         }
       }
     }
@@ -6727,17 +6727,17 @@
       "path": "../DataModel/DataModel.csproj",
       "msbuildProject": "../DataModel/DataModel.csproj"
     },
-    "LiquorsCart.ServerSide.DomainModel/1.0.0": {
+    "LiquorsCart.ServerSide.ViewModel/1.0.0": {
       "type": "project",
-      "path": "../DomainModel/DomainModel.csproj",
-      "msbuildProject": "../DomainModel/DomainModel.csproj"
+      "path": "../ViewModel/ViewModel.csproj",
+      "msbuildProject": "../ViewModel/ViewModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.1.1",
       "LiquorsCart.ServerSide.DataModel >= 1.0.0",
-      "LiquorsCart.ServerSide.DomainModel >= 1.0.0",
+      "LiquorsCart.ServerSide.ViewModel >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
@@ -6774,11 +6774,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+            "C:\\Shekhar\\LiquorsCart\\ViewModel\\ViewModel.csproj": {
+              "projectPath": "C:\\Shekhar\\LiquorsCart\\ViewModel\\ViewModel.csproj"
+            },
             "C:\\Shekhar\\LiquorsCart\\DataModel\\DataModel.csproj": {
               "projectPath": "C:\\Shekhar\\LiquorsCart\\DataModel\\DataModel.csproj"
-            },
-            "C:\\Shekhar\\LiquorsCart\\DomainModel\\DomainModel.csproj": {
-              "projectPath": "C:\\Shekhar\\LiquorsCart\\DomainModel\\DomainModel.csproj"
             }
           }
         }

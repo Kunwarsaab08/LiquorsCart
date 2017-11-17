@@ -1,0 +1,9 @@
+C:\Shekhar\LiquorsCart\Validation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Validation.deps.json
+C:\Shekhar\LiquorsCart\Validation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Validation.dll
+C:\Shekhar\LiquorsCart\Validation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Validation.pdb
+C:\Shekhar\LiquorsCart\Validation\obj\Debug\netcoreapp2.0\Validation.csprojResolveAssemblyReference.cache
+C:\Shekhar\LiquorsCart\Validation\obj\Debug\netcoreapp2.0\Validation.csproj.CoreCompileInputs.cache
+C:\Shekhar\LiquorsCart\Validation\obj\Debug\netcoreapp2.0\Validation.AssemblyInfoInputs.cache
+C:\Shekhar\LiquorsCart\Validation\obj\Debug\netcoreapp2.0\Validation.AssemblyInfo.cs
+C:\Shekhar\LiquorsCart\Validation\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Validation.dll
+C:\Shekhar\LiquorsCart\Validation\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Validation.pdb

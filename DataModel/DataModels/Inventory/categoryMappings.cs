@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class CategoryMappings : MasterDM
     {
         [Key]
-        public int CategoryMappingId { get; set; }
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public Int64 CategoryMappingId { get; set; }
 
-        public int MainCategoryId { get; set; }
+        [Required]
+        [ForeignKey(name: "Category")]
+        public Int64 MainCategoryId { get; set; }
 
-        public int SubCategoryId { get; set; }
+        [Required]
+        [ForeignKey(name: "SubCategory")]
+        public Int64 SubCategoryId { get; set; }
 
-        public int TypeCategoryId { get; set; }
+        [Required]
+        [ForeignKey(name: "TypeCategory")]
+        public Int64 TypeCategoryId { get; set; }
 
         public bool CategoryMappingIsActive { get; set; }
 

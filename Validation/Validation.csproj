@@ -5,4 +5,9 @@
     <AssemblyName>LiquorsCart.ServerSide.Validation</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="CustomValidationAttributes\" />
+    <Folder Include="CustomValidationRules\" />
+  </ItemGroup>
+
 </Project>

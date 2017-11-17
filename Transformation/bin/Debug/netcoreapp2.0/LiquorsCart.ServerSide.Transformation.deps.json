@@ -10,7 +10,7 @@
         "dependencies": {
           "AutoMapper": "6.1.1",
           "LiquorsCart.ServerSide.DataModel": "1.0.0",
-          "LiquorsCart.ServerSide.DomainModel": "1.0.0"
+          "LiquorsCart.ServerSide.ViewModel": "1.0.0"
         },
         "runtime": {
           "LiquorsCart.ServerSide.Transformation.dll": {}
@@ -1365,9 +1365,9 @@
           "LiquorsCart.ServerSide.DataModel.dll": {}
         }
       },
-      "LiquorsCart.ServerSide.DomainModel/1.0.0": {
+      "LiquorsCart.ServerSide.ViewModel/1.0.0": {
         "runtime": {
-          "LiquorsCart.ServerSide.DomainModel.dll": {}
+          "LiquorsCart.ServerSide.ViewModel.dll": {}
         }
       }
     }
@@ -2202,7 +2202,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "LiquorsCart.ServerSide.DomainModel/1.0.0": {
+    "LiquorsCart.ServerSide.ViewModel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

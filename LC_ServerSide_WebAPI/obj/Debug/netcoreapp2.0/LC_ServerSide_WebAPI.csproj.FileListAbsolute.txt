@@ -1,0 +1,4 @@
+C:\Shekhar\LiquorsCart\LC_ServerSide_WebAPI\obj\Debug\netcoreapp2.0\LC_ServerSide_WebAPI.csprojResolveAssemblyReference.cache
+C:\Shekhar\LiquorsCart\LC_ServerSide_WebAPI\obj\Debug\netcoreapp2.0\LC_ServerSide_WebAPI.csproj.CoreCompileInputs.cache
+C:\Shekhar\LiquorsCart\LC_ServerSide_WebAPI\obj\Debug\netcoreapp2.0\LC_ServerSide_WebAPI.AssemblyInfoInputs.cache
+C:\Shekhar\LiquorsCart\LC_ServerSide_WebAPI\obj\Debug\netcoreapp2.0\LC_ServerSide_WebAPI.AssemblyInfo.cs

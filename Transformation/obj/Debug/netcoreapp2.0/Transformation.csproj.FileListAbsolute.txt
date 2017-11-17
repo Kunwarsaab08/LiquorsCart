@@ -1,13 +1,13 @@
 C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.deps.json
 C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.dll
+C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.pdb
 C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.dll
-C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.dll
+C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.dll
 C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.pdb
-C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.pdb
+C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.pdb
 C:\Shekhar\LiquorsCart\Transformation\obj\Debug\netcoreapp2.0\Transformation.csprojResolveAssemblyReference.cache
 C:\Shekhar\LiquorsCart\Transformation\obj\Debug\netcoreapp2.0\Transformation.csproj.CoreCompileInputs.cache
 C:\Shekhar\LiquorsCart\Transformation\obj\Debug\netcoreapp2.0\Transformation.AssemblyInfoInputs.cache
 C:\Shekhar\LiquorsCart\Transformation\obj\Debug\netcoreapp2.0\Transformation.AssemblyInfo.cs
-C:\Shekhar\LiquorsCart\Transformation\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.pdb
 C:\Shekhar\LiquorsCart\Transformation\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.dll
 C:\Shekhar\LiquorsCart\Transformation\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.pdb

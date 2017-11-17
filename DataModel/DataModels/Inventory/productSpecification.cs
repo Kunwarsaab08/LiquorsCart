@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 {
     public class ProductSpecification : MasterDM
     {
         [Key]
-        public int ProductSpecificationID { get; set; }
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public Int64 ProductSpecificationID { get; set; }
 
-        public int ProductID { get; set; }
+        [Required]
+        [ForeignKey(name: "Product")]
+        public Int64 ProductID { get; set; }
 
-        public int ProductSpecificationsID { get; set; }
+        [Required]
+        [ForeignKey(name: "Specification")]
+        public Int64 ProductSpecificationsID { get; set; }
 
-        public int ProductSpecificationValuesID { get; set; }
+        [Required]
+        [ForeignKey(name: "SpecificationValue")]
+        public Int64 ProductSpecificationValuesID { get; set; }
 
+        [Required]
         public bool ProductSpecificationISActive { get; set; }
 
         public DateTime? ProductSpecificationCreatedDate { get; set; }

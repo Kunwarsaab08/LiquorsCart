@@ -16,3 +16,5 @@ C:\Shekhar\LiquorsCart\Repository.UnitTest\obj\Debug\netcoreapp2.0\Repository.Un
 C:\Shekhar\LiquorsCart\Repository.UnitTest\obj\Debug\netcoreapp2.0\Repository.UnitTest.AssemblyInfo.cs
 C:\Shekhar\LiquorsCart\Repository.UnitTest\obj\Debug\netcoreapp2.0\Repository.UnitTest.dll
 C:\Shekhar\LiquorsCart\Repository.UnitTest\obj\Debug\netcoreapp2.0\Repository.UnitTest.pdb
+C:\Shekhar\LiquorsCart\Repository.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Exceptions.dll
+C:\Shekhar\LiquorsCart\Repository.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Exceptions.pdb

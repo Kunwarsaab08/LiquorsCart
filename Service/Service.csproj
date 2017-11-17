@@ -6,9 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customer\" />
-    <Folder Include="Inventory\" />
-    <Folder Include="Vendor\" />
+    <PackageReference Include="AutoMapper" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\Transformation\Transformation.csproj" />
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,93 +1,153 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using LiquorsCart.ServerSide.DataModel.DataModels;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using LiquorsCart.ServerSide.Exceptions;
+using LiquorsCart.ServerSide.Exceptions.DatabaseExceptions;
+using System.Diagnostics;
 
 namespace LiquorsCart.ServerSide.Repository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : MasterDM, new()
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly DbContext _dbContext;
-        private DbSet<T> entities;
-        string errorMessage = string.Empty;
+        private DbContext context;
+        private DbSet<TEntity> dbSet;
 
-        public GenericRepository(DbContext dbContext)
+        public GenericRepository(DbContext context)
         {
-            this._dbContext = dbContext;
+            this.context = context;
+            this.dbSet = context.Set<TEntity>();            
         }
 
-        public async Task Delete(T entity)
-        {
-            try
-            { 
-                _dbContext.Set<T>().Remove(entity);
-                await _dbContext.SaveChangesAsync();
-            }
-            catch (Exception dbEx)
-            {
-                throw dbEx;
-            }
-        }
-
-        public async Task Update(T entity)
+        public virtual List<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, params Expression<Func<TEntity, object>>[] includes)
         {
             try
             {
-                _dbContext.Set<T>().Update(entity);
-                await _dbContext.SaveChangesAsync();
+                IQueryable<TEntity> query = dbSet;
+
+                foreach (Expression<Func<TEntity, object>> include in includes)
+                    query = query.Include(include);
+
+                if (filter != null)
+                    query = query.Where(filter);
+
+                if (orderBy != null)    
+                    query = orderBy(query);
+
+                return query.ToList();
             }
-            catch (Exception dbEx)
+            catch(Exception ex)
             {
-                throw dbEx;
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
             }            
         }
 
-        public async Task Save(T entity)
+        public virtual IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
         {
             try
             {
-                _dbContext.Set<T>().Add(entity);
-                await _dbContext.SaveChangesAsync();
+                IQueryable<TEntity> query = dbSet;
+
+                if (filter != null)
+                    query = query.Where(filter);
+
+                if (orderBy != null)
+                    query = orderBy(query);
+
+                return query;
             }
-            catch (Exception dbEx)
+            catch (Exception ex)
             {
-                throw dbEx;
-            }            
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
+            }
         }
 
-        public IEnumerable<T> FindAll()
+        public virtual TEntity GetById(object id)
         {
             try
             {
-                return  _dbContext.Set<T>().ToList();
+                return dbSet.Find(id);
             }
-            catch (Exception dbEx)
+            catch (Exception ex)
             {
-                throw dbEx;
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
             }            
         }
-                              
-        public virtual IQueryable<T> Table
+
+        public virtual TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
         {
-            get
+            try
             {
-                return this.Entities;
+                IQueryable<TEntity> query = dbSet;
+
+                foreach (Expression<Func<TEntity, object>> include in includes)
+                    query = query.Include(include);
+
+                return query.FirstOrDefault(filter);
             }
+            catch (Exception ex)
+            {
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
+            }            
         }
 
-        private DbSet<T> Entities
+        public virtual void Insert(TEntity entity)
         {
-            get
+            try
             {
-                if (entities == null)
+                dbSet.Add(entity);
+            }
+            catch (Exception ex)
+            {
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
+            }            
+        }
+
+        public virtual void Update(TEntity entity)
+        {
+            try
+            {
+                dbSet.Attach(entity);
+                context.Entry(entity).State = EntityState.Modified;
+            }
+            catch(Exception ex)
+            {
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
+            }
+            
+        }
+
+        public virtual void Delete(object id)
+        {
+            try
+            {
+                TEntity entityToDelete = dbSet.Find(id);
+                if (context.Entry(entityToDelete).State == EntityState.Detached)
                 {
-                    entities = _dbContext.Set<T>();
+                    dbSet.Attach(entityToDelete);
                 }
-                return entities;
+                dbSet.Remove(entityToDelete);
             }
+            catch(Exception ex)
+            {
+                DatabaseException databaseException = new DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomException(ex));
+                throw databaseException;
+            }            
         }
     }
 }

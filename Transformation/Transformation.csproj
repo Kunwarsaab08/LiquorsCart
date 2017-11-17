@@ -11,11 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataModel\DataModel.csproj" />
-    <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewDomain_Model_Mapper\" />
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

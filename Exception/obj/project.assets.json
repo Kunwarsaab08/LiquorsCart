@@ -673,9 +673,9 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Shekhar\\LiquorsCart\\Exception\\Exception.csproj",
-      "projectName": "Exception",
-      "projectPath": "C:\\Shekhar\\LiquorsCart\\Exception\\Exception.csproj",
+      "projectUniqueName": "C:\\Shekhar\\LiquorsCart\\Exception\\Exceptions.csproj",
+      "projectName": "Exceptions",
+      "projectPath": "C:\\Shekhar\\LiquorsCart\\Exception\\Exceptions.csproj",
       "packagesPath": "C:\\Users\\chandra.s.rajput\\.nuget\\packages\\",
       "outputPath": "C:\\Shekhar\\LiquorsCart\\Exception\\obj\\",
       "projectStyle": "PackageReference",

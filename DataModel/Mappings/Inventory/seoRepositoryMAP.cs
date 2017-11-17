@@ -10,7 +10,7 @@ namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
         {
             builder.ToTable("SEORepository");
             builder.HasKey(m => m.SeoId);
-            builder.Property(m => m.SeoId).HasColumnName("(SEOid");
+            builder.Property(m => m.SeoId).HasColumnName("SEOid");
             builder.Property(m => m.SeoPageTitle).HasColumnName("SEOPageTitle");
             builder.Property(m => m.SeoDescriptionTag).HasColumnName("SEODescriptionTag");
             builder.Property(m => m.SeoMetaTag).HasColumnName("SEOMetaTag");

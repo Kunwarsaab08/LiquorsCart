@@ -1,9 +1,0 @@
-C:\Shekhar\LiquorsCart\DomainModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.deps.json
-C:\Shekhar\LiquorsCart\DomainModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.dll
-C:\Shekhar\LiquorsCart\DomainModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.pdb
-C:\Shekhar\LiquorsCart\DomainModel\obj\Debug\netcoreapp2.0\DomainModel.csprojResolveAssemblyReference.cache
-C:\Shekhar\LiquorsCart\DomainModel\obj\Debug\netcoreapp2.0\DomainModel.csproj.CoreCompileInputs.cache
-C:\Shekhar\LiquorsCart\DomainModel\obj\Debug\netcoreapp2.0\DomainModel.AssemblyInfoInputs.cache
-C:\Shekhar\LiquorsCart\DomainModel\obj\Debug\netcoreapp2.0\DomainModel.AssemblyInfo.cs
-C:\Shekhar\LiquorsCart\DomainModel\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.dll
-C:\Shekhar\LiquorsCart\DomainModel\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DomainModel.pdb
