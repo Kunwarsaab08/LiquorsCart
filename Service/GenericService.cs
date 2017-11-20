@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using LiquorsCart.ServerSide.Repository;
 using LiquorsCart.ServerSide.Exceptions;
 using LiquorsCart.ServerSide.Exceptions.BusinessExceptions;
+using LiquorsCart.ServerSide.Exceptions.Mapper;
 using DM = LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using VM = LiquorsCart.ServerSide.ViewModel.Inventory;
 using AutoMapper;
@@ -14,11 +15,7 @@ namespace LiquorsCart.ServerSide.Service
     public class GenericService<TEntity> :Profile, IGenericService<TEntity> where TEntity : class
     {
         private UnitOfWork unitOfWork;
-        //private GenericRepository<TEntity> repo;
-
-        public string ViewModelClassName { get; set; }
-        public string ViewModelNamespaceName { get; set; }
-        public Type DataModelTypeName { get; set; }
+        public Type MapperDestinationType { get; set; }
         public Type GenRepo { get; set; }
         public dynamic GenRepoInstance { get; set; }
 
@@ -31,23 +28,17 @@ namespace LiquorsCart.ServerSide.Service
                 //Assign UOW object.
                 unitOfWork = new UnitOfWork();
 
-                //Get details of View Model.
-                ViewModelClassName = typeof(TEntity).Name;
-                ViewModelNamespaceName = typeof(TEntity).Namespace;
+                ////Get details of View Model.
+                //ViewModelClassName = typeof(TEntity).Name;
+                //ViewModelNamespaceName = typeof(TEntity).Namespace;
 
-                //Get details of corresponding DataModel for a View Model.
-                DataModelTypeName = AppDomain.CurrentDomain.GetAssemblies()
-                           .SelectMany(t => t.GetTypes())
-                           .Where(t => t.IsClass
-                                && t.Name == ViewModelClassName
-                                && t.Namespace == ViewModelNamespaceName.Replace("ViewModel", "DataModel.DataModels"))
-                           .SingleOrDefault();
-                                
-                //Get Type of Generice Repository for Data Model instead of View Model.
-                GenRepo = typeof(GenericRepository<>).MakeGenericType(DataModelTypeName);
-                
-                //Get Instance of Generic Repository for DataModel
-                GenRepoInstance = Activator.CreateInstance(GenRepo,unitOfWork._context);             
+                ////Get details of corresponding DataModel for a View Model.
+                //DataModelTypeName = AppDomain.CurrentDomain.GetAssemblies()
+                //           .SelectMany(t => t.GetTypes())
+                //           .Where(t => t.IsClass
+                //                && t.Name == ViewModelClassName
+                //                && t.Namespace == ViewModelNamespaceName.Replace("ViewModel", "DataModel.DataModels"))
+                //           .SingleOrDefault();                                          
 
                 //Automapper Configuration for Testing for production need to register in Startup.cs
                 var config = new MapperConfiguration(cfg => {
@@ -55,6 +46,31 @@ namespace LiquorsCart.ServerSide.Service
                 });
 
                 iMapper = config.CreateMapper();
+                
+                //Getting all mappings from Automapper.
+                var maps = config.GetAllTypeMaps();
+                if(maps.Length > 0)
+                {
+                    foreach (var map in maps)
+                    {
+                        if (map.SourceType == typeof(TEntity))
+                        {
+                            MapperDestinationType = map.DestinationType;
+                        }
+                    }
+                }  
+
+                //If not found any destination tye in all mapper configuration.
+                if(MapperDestinationType is null)
+                {
+                    throw new MappingNotFound("Automapper's mappings is not found for" + typeof(TEntity) + " .");
+                }
+
+                //Get Type of Generice Repository for Data Model instead of View Model.
+                GenRepo = typeof(GenericRepository<>).MakeGenericType(MapperDestinationType);
+
+                //Get Instance of Generic Repository for DataModel
+                GenRepoInstance = Activator.CreateInstance(GenRepo, unitOfWork._context);
             }
             catch (Exception ex)
             {
@@ -95,6 +111,43 @@ namespace LiquorsCart.ServerSide.Service
 
         public TEntity GetById(object id)
         {
+            //try
+            //{
+            //    //Create Instance of ViewModel
+            //    var vmEntity = Activator.CreateInstance(typeof(TEntity));
+
+            //    //Iterate through all the properties of View Model
+            //    foreach (var property in vmEntity.GetType().GetProperties())
+            //    {
+            //        Console.WriteLine("{0}={1}", property.Name, property.GetValue(vmEntity, null));
+            //    }
+            //    //Getting GenericRepository's Generice Argument Type to cast DataModel.
+            //    var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
+
+            //    //Getting DataModel from View Model using Automapper.
+            //    var dataModel = iMapper.Map(entity, entity.GetType(), DataModelTypeName);
+
+            //    //Convert & Assign Data Model to proper type.
+            //    dataModelType = dataModel;
+
+
+            //    //Call GetById Method from Generic Repository for Data Model by Primary key 
+            //    vmEntity = GenRepoInstance.GetById(id);
+
+            //    //Commit changes to database.
+            //    unitOfWork.Save();
+
+            //    return vmEntity;
+            //}
+            //catch (Exception ex)
+            //{
+            //    BusinessException businessException = new BusinessException();
+            //    businessException.Data.Add("CustomException",
+            //        ex.Data["CustomException"] is null ? new CustomException(ex) :
+            //        ex.Data["CustomException"]);
+
+            //    throw businessException;
+            //}
             throw new NotImplementedException();
         }
 
@@ -111,7 +164,7 @@ namespace LiquorsCart.ServerSide.Service
                 var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
 
                 //Getting DataModel from View Model using Automapper.
-                var dataModel = iMapper.Map(entity, entity.GetType(), DataModelTypeName);
+                var dataModel = iMapper.Map(entity, entity.GetType(), MapperDestinationType);
 
                 //Convert & Assign Data Model to proper type.
                 dataModelType = dataModel;
@@ -146,7 +199,7 @@ namespace LiquorsCart.ServerSide.Service
                 var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
 
                 //Getting DataModel from View Model using Automapper.
-                var dataModel = iMapper.Map(entity, entity.GetType(), DataModelTypeName);
+                var dataModel = iMapper.Map(entity, entity.GetType(), MapperDestinationType);
 
                 //Convert & Assign Data Model to proper type.
                 dataModelType = dataModel;

@@ -31,10 +31,10 @@ namespace Service.UnitTest
             try
             {
                 VM.SeoRepository seorepo = new VM.SeoRepository();
-                seorepo.SeoKeywords = "Test4";
-                seorepo.SeoDescriptionTag = "Test4";
-                seorepo.SeoMetaTag = "Test4";
-                seorepo.SeoPageTitle = "Test4";
+                seorepo.SeoKeywords = "Test5";
+                seorepo.SeoDescriptionTag = "Test5";
+                seorepo.SeoMetaTag = "Test5";
+                seorepo.SeoPageTitle = "Test5";
                 
                 GenericService<VM.SeoRepository> seoService = new GenericService<VM.SeoRepository>();
                 seoService.Insert(seorepo);
