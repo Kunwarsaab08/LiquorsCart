@@ -7,7 +7,7 @@ namespace LiquorsCart.ServerSide.ViewModel.Inventory
 {
     public class ImageRepository : MasterDM
     {
-        public int ImageId { get; set; }
+        public Int64 ImageId { get; set; }
 
         public string ImageLogoIcon { get; set; }
 

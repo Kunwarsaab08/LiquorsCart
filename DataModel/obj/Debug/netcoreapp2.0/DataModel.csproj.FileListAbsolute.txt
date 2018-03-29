@@ -1,9 +1,9 @@
 C:\Shekhar\LiquorsCart\DataModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.deps.json
 C:\Shekhar\LiquorsCart\DataModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.dll
 C:\Shekhar\LiquorsCart\DataModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.pdb
+C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\DataModel.csprojResolveAssemblyReference.cache
 C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\DataModel.csproj.CoreCompileInputs.cache
 C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\DataModel.AssemblyInfoInputs.cache
 C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\DataModel.AssemblyInfo.cs
 C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.dll
 C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.pdb
-C:\Shekhar\LiquorsCart\DataModel\obj\Debug\netcoreapp2.0\DataModel.csprojResolveAssemblyReference.cache

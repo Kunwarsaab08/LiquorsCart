@@ -7,7 +7,7 @@ namespace LiquorsCart.ServerSide.ViewModel.Inventory
 {
     public class Company : MasterDM
     {
-        public int CompanyId { get; set; }
+        public Int64 CompanyId { get; set; }
 
         public string CompanyName { get; set; }
 
@@ -25,6 +25,6 @@ namespace LiquorsCart.ServerSide.ViewModel.Inventory
 
         public DateTime? CompanyChangeDate { get; set; }
 
-        public int CompanyChangeBy { get; set; }
+        public Int64? CompanyChangeBy { get; set; }
     }
 }

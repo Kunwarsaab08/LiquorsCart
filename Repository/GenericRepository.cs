@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using LiquorsCart.ServerSide.Exceptions;
-using LiquorsCart.ServerSide.Exceptions.DatabaseExceptions;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using CustomExceptions = LiquorsCart.ServerSide.Exceptions;
+using System.Data.SqlClient;
 
 namespace LiquorsCart.ServerSide.Repository
 {
@@ -38,8 +38,8 @@ namespace LiquorsCart.ServerSide.Repository
             }
             catch(Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
         }
@@ -60,8 +60,8 @@ namespace LiquorsCart.ServerSide.Repository
             }
             catch (Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }
         }
@@ -74,11 +74,11 @@ namespace LiquorsCart.ServerSide.Repository
             }
             catch (Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
-        }
+        }        
 
         public virtual TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
         {
@@ -93,8 +93,8 @@ namespace LiquorsCart.ServerSide.Repository
             }
             catch (Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
         }
@@ -103,27 +103,40 @@ namespace LiquorsCart.ServerSide.Repository
         {
             try
             {
-                dbSet.Add(entity);
+                dbSet.Add(entity);                
             }
             catch (Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
+        }
+
+        public virtual bool IsValidEntity(TEntity entity)
+        {
+            try
+            {
+                return dbSet.Any(r => r == entity);
+            }
+            catch (Exception ex)
+            {
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
+                throw databaseException;
+            }
         }
 
         public virtual void Update(TEntity entity)
         {
             try
             {
-                dbSet.Attach(entity);
                 context.Entry(entity).State = EntityState.Modified;
             }
             catch(Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }
             
@@ -134,18 +147,47 @@ namespace LiquorsCart.ServerSide.Repository
             try
             {
                 TEntity entityToDelete = dbSet.Find(id);
-                if (context.Entry(entityToDelete).State == EntityState.Detached)
-                {
-                    dbSet.Attach(entityToDelete);
-                }
-                dbSet.Remove(entityToDelete);
+                context.Entry(entityToDelete).State = EntityState.Deleted;
             }
             catch(Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
         }
+
+        //public virtual Int64 GetCurrentIdentity(string tablename)
+        //{
+        //    try
+        //    {
+        //        var sql = "SELECT dbo.getCurrentIdentity(@tablename)";
+        //        Int64 curr_dentity = Convert.ToInt64(context.Database.ExecuteSqlCommand(sql, new SqlParameter("@tablename", tablename)));
+        //        return curr_dentity;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+        //        databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
+        //        throw databaseException;
+        //    }            
+        //}
+
+        //public virtual Int64 GetNextIdentity(string tablename)
+        //{
+        //    try
+        //    {
+        //        var sql = "EXEC dbo.getNextIdentity @tablename";
+        //        var outparam = new SqlParameter();
+        //        var curr_dentity = context.Database.ExecuteSqlCommand(sql, new SqlParameter("@tablename", tablename));
+        //        return curr_dentity;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+        //        databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
+        //        throw databaseException;
+        //    }
+        //}
     }
 }

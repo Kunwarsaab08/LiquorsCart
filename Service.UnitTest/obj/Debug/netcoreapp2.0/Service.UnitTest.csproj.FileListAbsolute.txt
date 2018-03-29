@@ -13,9 +13,9 @@ C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.Serv
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.dll
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.dll
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.DataModel.pdb
+C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Repository.pdb
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Service.pdb
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Exceptions.pdb
-C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Repository.pdb
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.Transformation.pdb
 C:\Shekhar\LiquorsCart\Service.UnitTest\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.pdb
 C:\Shekhar\LiquorsCart\Service.UnitTest\obj\Debug\netcoreapp2.0\Service.UnitTest.csprojResolveAssemblyReference.cache

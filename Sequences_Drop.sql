@@ -1,0 +1,17 @@
+﻿DROP SEQUENCE ImageRepository_Sequence;
+DROP SEQUENCE SEORepository_Sequence;
+DROP SEQUENCE CategoryMaster_Sequence;
+DROP SEQUENCE SubCategoryMaster_Sequence;
+DROP SEQUENCE TypeCategoryMaster_Sequence;
+DROP SEQUENCE CategoryMappings_Sequence;
+DROP SEQUENCE ProductMaster_Sequence;
+DROP SEQUENCE CompanyMaster_Sequence;
+DROP SEQUENCE BrandMaster_Sequence;
+DROP SEQUENCE SpecificationMaster_Sequence;
+DROP SEQUENCE SpecificationValuesMaster_Sequence;
+DROP SEQUENCE ProductSpecification_Sequence;
+DROP SEQUENCE SKUMaster_Sequence;
+DROP SEQUENCE SKUInventory_Sequence;
+DROP SEQUENCE SKUDiscount_Sequence;
+DROP SEQUENCE SKUVendor_Sequence;
+DROP SEQUENCE VendorMaster_Sequence;

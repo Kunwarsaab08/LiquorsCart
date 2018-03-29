@@ -26,6 +26,6 @@ namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 
         public DateTime? ProductSKUDiscountChangeDate { get; set; }
 
-        public int ProductSKUDiscountChangeBy { get; set; }
+        public Int64? ProductSKUDiscountChangeBy { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace LiquorsCart.ServerSide.ViewModel.Inventory
 {
     public class SeoRepository : MasterDM
     {
-        public int SeoId { get; set; }
+        public Int64 SeoId { get; set; }
 
         public string SeoPageTitle { get; set; }
 

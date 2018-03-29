@@ -23,7 +23,7 @@ namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 
         public DateTime? SpecificationValueChangeDate { get; set; }
 
-        public int SpecificationValueChangeBy { get; set; }
+        public Int64? SpecificationValueChangeBy { get; set; }
 
     }
 }

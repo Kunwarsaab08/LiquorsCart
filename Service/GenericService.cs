@@ -1,82 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using LiquorsCart.ServerSide.Repository;
-using LiquorsCart.ServerSide.Exceptions;
-using LiquorsCart.ServerSide.Exceptions.BusinessExceptions;
-using LiquorsCart.ServerSide.Exceptions.Mapper;
-using DM = LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
-using VM = LiquorsCart.ServerSide.ViewModel.Inventory;
 using AutoMapper;
+using System.Linq;
+using System.Reflection;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using CustomExceptions = LiquorsCart.ServerSide.Exceptions;
+using CustomRepository = LiquorsCart.ServerSide.Repository;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiquorsCart.ServerSide.Service
 {
     public class GenericService<TEntity> :Profile, IGenericService<TEntity> where TEntity : class
     {
-        private UnitOfWork unitOfWork;
+        private CustomRepository.UnitOfWork unitOfWork;
         public Type MapperDestinationType { get; set; }
         public Type GenRepo { get; set; }
         public dynamic GenRepoInstance { get; set; }
-
-        private IMapper iMapper;
-
+        
         public GenericService()
         {
             try
             {
                 //Assign UOW object.
-                unitOfWork = new UnitOfWork();
+                unitOfWork = new CustomRepository.UnitOfWork();
 
-                ////Get details of View Model.
-                //ViewModelClassName = typeof(TEntity).Name;
-                //ViewModelNamespaceName = typeof(TEntity).Namespace;
+                //Getting map from source type from Automapper.
+                var map = Mapper.Configuration.GetAllTypeMaps()
+                    .FirstOrDefault(t => t.SourceType == typeof(TEntity));
 
-                ////Get details of corresponding DataModel for a View Model.
-                //DataModelTypeName = AppDomain.CurrentDomain.GetAssemblies()
-                //           .SelectMany(t => t.GetTypes())
-                //           .Where(t => t.IsClass
-                //                && t.Name == ViewModelClassName
-                //                && t.Namespace == ViewModelNamespaceName.Replace("ViewModel", "DataModel.DataModels"))
-                //           .SingleOrDefault();                                          
-
-                //Automapper Configuration for Testing for production need to register in Startup.cs
-                var config = new MapperConfiguration(cfg => {
-                    cfg.CreateMap<VM.SeoRepository, DM.SeoRepository>().ReverseMap();
-                });
-
-                iMapper = config.CreateMapper();
-                
-                //Getting all mappings from Automapper.
-                var maps = config.GetAllTypeMaps();
-                if(maps.Length > 0)
-                {
-                    foreach (var map in maps)
-                    {
-                        if (map.SourceType == typeof(TEntity))
-                        {
-                            MapperDestinationType = map.DestinationType;
-                        }
-                    }
-                }  
+                //Getting destination type from retrieved map.
+                MapperDestinationType = map.DestinationType;
 
                 //If not found any destination tye in all mapper configuration.
-                if(MapperDestinationType is null)
+                if (MapperDestinationType is null)
                 {
-                    throw new MappingNotFound("Automapper's mappings is not found for" + typeof(TEntity) + " .");
+                    throw new CustomExceptions.Mapper.MappingNotFound("Automapper's mappings is not found for" + typeof(TEntity) + " .");
                 }
 
                 //Get Type of Generice Repository for Data Model instead of View Model.
-                GenRepo = typeof(GenericRepository<>).MakeGenericType(MapperDestinationType);
+                GenRepo = typeof(CustomRepository.GenericRepository<>).MakeGenericType(MapperDestinationType);
 
                 //Get Instance of Generic Repository for DataModel
                 GenRepoInstance = Activator.CreateInstance(GenRepo, unitOfWork._context);
             }
             catch (Exception ex)
             {
-                BusinessException businessException = new BusinessException();
+                CustomExceptions.BusinessExceptions.BusinessException businessException = new CustomExceptions.BusinessExceptions.BusinessException();
                 businessException.Data.Add("CustomException",
-                    ex.Data["CustomException"] is null ? new CustomException(ex) :
+                    ex.Data["CustomException"] is null ? new CustomExceptions.CustomException(ex) :
                     ex.Data["CustomException"]);
 
                 throw businessException;
@@ -95,9 +67,9 @@ namespace LiquorsCart.ServerSide.Service
             }
             catch(Exception ex)
             {
-                BusinessException businessException = new BusinessException();
+                CustomExceptions.BusinessExceptions.BusinessException businessException = new CustomExceptions.BusinessExceptions.BusinessException();
                 businessException.Data.Add("CustomException",
-                    ex.Data["CustomException"] is null ? new CustomException(ex) :
+                    ex.Data["CustomException"] is null ? new CustomExceptions.CustomException(ex) :
                     ex.Data["CustomException"]);
 
                 throw businessException;
@@ -106,49 +78,93 @@ namespace LiquorsCart.ServerSide.Service
 
         public List<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, params Expression<Func<TEntity, object>>[] includes)
         {
-            throw new NotImplementedException();
+            List<TEntity> listViewModel = new List<TEntity>();
+
+            //Getting GenericRepository's Generice Argument Type to cast DataModel.
+            var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
+
+            //Call GetById Method from Generic Repository for Data Model by Primary key 
+            dataModelType = GenRepoInstance.Get(filter, orderBy, includes);
+
+            //// get all models (all properties)
+            //List<Model> modelList = _unitOfWork.ModelRepository.Get(m => m.FirstName == "Jan" || m.LastName == "Holinka", includeProperties: "Account");
+
+            //// get all models (some properties)
+            //List<ModelDto> modelDtoList = _unitOfWork.UserRepository
+            //    .Query(x => x.FirstName == "Jan" || x.LastName == "Holinka")
+            //    .Select(x => new ModelDto
+            //    {
+            //        FirstName = x.FirstName,
+            //        LastName = x.LastName
+            //    })
+            //    .ToList();
+
+            return listViewModel;
         }
 
         public TEntity GetById(object id)
         {
-            //try
-            //{
-            //    //Create Instance of ViewModel
-            //    var vmEntity = Activator.CreateInstance(typeof(TEntity));
+            try
+            {
+                //Create Instance of ViewModel
+                var vmEntity = Activator.CreateInstance(typeof(TEntity));
+                
+                //Getting GenericRepository's Generice Argument Type to cast DataModel.
+                var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
 
-            //    //Iterate through all the properties of View Model
-            //    foreach (var property in vmEntity.GetType().GetProperties())
-            //    {
-            //        Console.WriteLine("{0}={1}", property.Name, property.GetValue(vmEntity, null));
-            //    }
-            //    //Getting GenericRepository's Generice Argument Type to cast DataModel.
-            //    var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
+                //Call GetById Method from Generic Repository for Data Model by Primary key 
+                dataModelType = GenRepoInstance.GetById(id);
 
-            //    //Getting DataModel from View Model using Automapper.
-            //    var dataModel = iMapper.Map(entity, entity.GetType(), DataModelTypeName);
+                //Getting ViewModel from Automapper 
+                vmEntity = Mapper.Map(dataModelType, dataModelType.GetType(), typeof(TEntity));
 
-            //    //Convert & Assign Data Model to proper type.
-            //    dataModelType = dataModel;
+                //Iterate through all the properties of View Model
+                PropertyInfo[] propertyInfo = vmEntity.GetType().GetProperties();
+                foreach (var property in propertyInfo)
+                {
+                    //Check wheather he property is of complex type.
+                    if (property.PropertyType.Namespace != "System")
+                    {
+                        //Getting property's Destination Type from ViewModel's property type.
+                        var propertyDestinationType = Mapper.Configuration.GetAllTypeMaps()
+                                                .FirstOrDefault(t => t.SourceType == property.PropertyType).DestinationType;
 
+                        //Getting property's Repository type for property's DataModel
+                        Type propetyRepo = typeof(CustomRepository.GenericRepository<>).MakeGenericType(propertyDestinationType);
 
-            //    //Call GetById Method from Generic Repository for Data Model by Primary key 
-            //    vmEntity = GenRepoInstance.GetById(id);
+                        //Creating instance of property's Repository
+                        dynamic propertyRepoInstance = Activator.CreateInstance(propetyRepo, unitOfWork._context);
 
-            //    //Commit changes to database.
-            //    unitOfWork.Save();
+                        //Getting Property's DM type from Generice Repo Instance.
+                        var propertdataModelType = propertyRepoInstance.GetType().GetGenericArguments()[0];
 
-            //    return vmEntity;
-            //}
-            //catch (Exception ex)
-            //{
-            //    BusinessException businessException = new BusinessException();
-            //    businessException.Data.Add("CustomException",
-            //        ex.Data["CustomException"] is null ? new CustomException(ex) :
-            //        ex.Data["CustomException"]);
+                        //Getting value of corresponding property from respective DataModel
+                        Type propertyTypeDM = dataModelType.GetType();
+                        PropertyInfo propertyInfoDM = propertyTypeDM.GetProperty(property.Name);
+                        var propertyValueDM = propertyInfoDM.GetValue(dataModelType, null);
 
-            //    throw businessException;
-            //}
-            throw new NotImplementedException();
+                        //Get complete datamodel from Repo
+                        propertdataModelType = propertyRepoInstance.GetById(propertyValueDM);
+
+                        //Getting property view model.
+                        var propertyViewModel= Mapper.Map(propertdataModelType, propertdataModelType.GetType(), property.PropertyType);
+                        //var propertyViewModel = Mapper.Map<property.PropertyType>(propertdataModelType);
+
+                        //Setting property View Model to Main/Returned view model.
+                        vmEntity.GetType().GetProperty(property.Name).SetValue(vmEntity, Convert.ChangeType(propertyViewModel,property.PropertyType));
+                    }
+                }
+                return (TEntity)vmEntity;
+            }
+            catch (Exception ex)
+            {
+                CustomExceptions.BusinessExceptions.BusinessException businessException = new CustomExceptions.BusinessExceptions.BusinessException();
+                businessException.Data.Add("CustomException",
+                    ex.Data["CustomException"] is null ? new CustomExceptions.CustomException(ex) :
+                    ex.Data["CustomException"]);
+
+                throw businessException;
+            }            
         }
 
         public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
@@ -160,26 +176,92 @@ namespace LiquorsCart.ServerSide.Service
         {
             try
             {
-                //Getting GenericRepository's Generice Argument Type to cast DataModel.
+                //Getting GenericRepository's Generice Argument Type to cast Main DataModel.
                 var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
 
-                //Getting DataModel from View Model using Automapper.
-                var dataModel = iMapper.Map(entity, entity.GetType(), MapperDestinationType);
+                //Getting Main DataModel from Main View Model using Automapper.
+                var dataModel = Mapper.Map(entity, entity.GetType(), MapperDestinationType);
 
                 //Convert & Assign Data Model to proper type.
                 dataModelType = dataModel;
 
-                //Call Insert method of Generic Repository for Data Model.
+                //Start Transaction
+                unitOfWork.BeginTransaction(unitOfWork._context);
+
+                //Iterate through all the properties of View Model with complex type
+                var propertiesWithComplexTypes = entity.GetType().GetProperties()
+                                                            .Where(prop=>prop.PropertyType.Namespace!= "System");
+
+                foreach(var property in propertiesWithComplexTypes)
+                {
+                    //Getting property's Destination Type from ViewModel's property type.
+                    Type propertyDestinationType = Mapper.Configuration.GetAllTypeMaps()
+                                            .FirstOrDefault(t => t.SourceType == property.PropertyType).DestinationType;
+
+                    //Getting DataModel from View Model using Automapper.
+                    var propertyDataModel = Mapper.Map(property.GetValue(entity), property.PropertyType, propertyDestinationType);
+
+                    //Getting property's Repository type for property's DataModel
+                    Type propetyRepo = typeof(CustomRepository.GenericRepository<>).MakeGenericType(propertyDestinationType);
+
+                    //Creating instance of property's Repository
+                    dynamic propertyRepoInstance = Activator.CreateInstance(propetyRepo, unitOfWork._context);
+
+                    //Getting Property's DM type from Generice Repo Instance.
+                    var propertydataModelType = propertyRepoInstance
+                                               .GetType()
+                                               .GetGenericArguments()[0];
+
+                    //Set paased entity to repo expected type.
+                    propertydataModelType = propertyDataModel;
+
+                    //check whether entity already exists or not
+                    bool isExists = propertyRepoInstance.IsValidEntity(propertydataModelType);
+
+                    //If entity is not exists then Insert else Update
+                    if (!isExists)
+                    {
+                        propertyRepoInstance.Insert(propertydataModelType);
+                    }
+                    else
+                    {
+                        propertyRepoInstance.Update(propertydataModelType);
+                    }
+
+                    //Save the current complex property
+                    unitOfWork.Save();
+
+                    //Getting all the properties decorated with KeyAttribute of respective DataModel of View Model's Property
+                    PropertyInfo propertyDMPropertiesWithDatabaseGeneratedAttribute = propertyDataModel
+                                     .GetType()
+                                     .GetProperties()
+                                     .FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(DatabaseGeneratedAttribute)));
+
+                    //Getting value of corresponding property from respective DataModel
+                    var propertyDMPropertyWithDatabaseGeneratedAttributeValueAfter = propertyDMPropertiesWithDatabaseGeneratedAttribute
+                                                                                .GetValue(propertydataModelType, null);
+
+                    //Setting property of Main Model
+                    dataModelType.GetType().GetProperty(property.Name).SetValue(dataModelType, Convert.ChangeType(propertyDMPropertyWithDatabaseGeneratedAttributeValueAfter, propertyDMPropertyWithDatabaseGeneratedAttributeValueAfter.GetType()));
+                }
+
+                //Call Insert method of Generic Repository for Main Data Model.
                 GenRepoInstance.Insert(dataModelType);
 
                 //Commit changes to database.
                 unitOfWork.Save();
+
+                //Commit Transaction
+                unitOfWork.CommitTransaction(unitOfWork._context);
             }
             catch (Exception ex)
             {
-                BusinessException businessException = new BusinessException();
+                //Rollback Transaction
+                unitOfWork.RollBackTransaction(unitOfWork._context);
+
+                CustomExceptions.BusinessExceptions.BusinessException businessException = new CustomExceptions.BusinessExceptions.BusinessException();
                 businessException.Data.Add("CustomException",
-                    ex.Data["CustomException"] is null ? new CustomException(ex) :
+                    ex.Data["CustomException"] is null ? new CustomExceptions.CustomException(ex) :
                     ex.Data["CustomException"]);
 
                 throw businessException;
@@ -195,26 +277,92 @@ namespace LiquorsCart.ServerSide.Service
         {
             try
             {
-                //Getting GenericRepository's Generice Argument Type to cast DataModel.
+                //Getting GenericRepository's Generice Argument Type to cast Main DataModel.
                 var dataModelType = GenRepoInstance.GetType().GetGenericArguments()[0];
 
-                //Getting DataModel from View Model using Automapper.
-                var dataModel = iMapper.Map(entity, entity.GetType(), MapperDestinationType);
+                //Getting Main DataModel from Main View Model using Automapper.
+                var dataModel = Mapper.Map(entity, entity.GetType(), MapperDestinationType);
 
                 //Convert & Assign Data Model to proper type.
                 dataModelType = dataModel;
 
-                //Call Insert method of Generic Repository for Data Model.
+                //Start Transaction
+                unitOfWork.BeginTransaction(unitOfWork._context);
+
+                //Iterate through all the properties of View Model with complex type
+                var propertiesWithComplexTypes = entity.GetType().GetProperties()
+                                                            .Where(prop => prop.PropertyType.Namespace != "System");
+
+                foreach (var property in propertiesWithComplexTypes)
+                {
+                    //Getting property's Destination Type from ViewModel's property type.
+                    Type propertyDestinationType = Mapper.Configuration.GetAllTypeMaps()
+                                            .FirstOrDefault(t => t.SourceType == property.PropertyType).DestinationType;
+
+                    //Getting DataModel from View Model using Automapper.
+                    var propertyDataModel = Mapper.Map(property.GetValue(entity), property.PropertyType, propertyDestinationType);
+
+                    //Getting property's Repository type for property's DataModel
+                    Type propetyRepo = typeof(CustomRepository.GenericRepository<>).MakeGenericType(propertyDestinationType);
+
+                    //Creating instance of property's Repository
+                    dynamic propertyRepoInstance = Activator.CreateInstance(propetyRepo, unitOfWork._context);
+
+                    //Getting Property's DM type from Generice Repo Instance.
+                    var propertydataModelType = propertyRepoInstance
+                                               .GetType()
+                                               .GetGenericArguments()[0];
+
+                    //Set paased entity to repo expected type.
+                    propertydataModelType = propertyDataModel;
+
+                    //check whether entity already exists or not
+                    bool isExists = propertyRepoInstance.IsValidEntity(propertydataModelType);
+
+                    //If entity is not exists then Insert else Update
+                    if (!isExists)
+                    {
+                        propertyRepoInstance.Insert(propertydataModelType);
+                    }
+                    else
+                    {
+                        propertyRepoInstance.Update(propertydataModelType);
+                    }
+
+                    //Save the current complex property
+                    unitOfWork.Save();
+
+                    //Getting all the properties decorated with KeyAttribute of respective DataModel of View Model's Property
+                    PropertyInfo propertyDMPropertiesWithDatabaseGeneratedAttribute = propertyDataModel
+                                     .GetType()
+                                     .GetProperties()
+                                     .FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(DatabaseGeneratedAttribute)));
+
+                    //Getting value of corresponding property from respective DataModel
+                    var propertyDMPropertyWithDatabaseGeneratedAttributeValueAfter = propertyDMPropertiesWithDatabaseGeneratedAttribute
+                                                                                .GetValue(propertydataModelType, null);
+
+                    //Setting property of Main Model
+                    dataModelType.GetType().GetProperty(property.Name).SetValue(dataModelType, Convert.ChangeType(propertyDMPropertyWithDatabaseGeneratedAttributeValueAfter, propertyDMPropertyWithDatabaseGeneratedAttributeValueAfter.GetType()));
+                }
+
+                //Call Insert method of Generic Repository for Main Data Model.
                 GenRepoInstance.Update(dataModelType);
 
                 //Commit changes to database.
                 unitOfWork.Save();
+
+                //Commit Transaction
+                unitOfWork.CommitTransaction(unitOfWork._context);
             }
             catch (Exception ex)
             {
-                BusinessException businessException = new BusinessException();
+                //Rollback Transaction
+                unitOfWork.RollBackTransaction(unitOfWork._context);
+
+                CustomExceptions.BusinessExceptions.BusinessException businessException = new CustomExceptions.BusinessExceptions.BusinessException();
                 businessException.Data.Add("CustomException",
-                    ex.Data["CustomException"] is null ? new CustomException(ex) :
+                    ex.Data["CustomException"] is null ? new CustomExceptions.CustomException(ex) :
                     ex.Data["CustomException"]);
 
                 throw businessException;

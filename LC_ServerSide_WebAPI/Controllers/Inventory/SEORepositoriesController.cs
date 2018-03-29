@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using LiquorsCart.ServerSide.Service.Inventory;
 using LiquorsCart.ServerSide.ViewModel.Inventory;
 
 namespace  LC_ServerSide_WebAPI.Controllers.Inventory
@@ -13,19 +12,19 @@ namespace  LC_ServerSide_WebAPI.Controllers.Inventory
     [Route("api/SEORepositories")]
     public class SEORepositoriesController : Controller
     {
-        private SEORepositoryService seoRepositoryService;
+        //private SEORepositoryService seoRepositoryService;
 
-        public SEORepositoriesController()
-        {
-            seoRepositoryService = new SEORepositoryService();
-        }
+        //public SEORepositoriesController()
+        //{
+        //    seoRepositoryService = new SEORepositoryService();
+        //}
         
         // GET: api/SEORepositories
         [HttpGet]
         public IActionResult Get()
         {
             List<SeoRepository> listSEORepository = new List<SeoRepository>();
-            listSEORepository = seoRepositoryService.Get();
+            //listSEORepository = seoRepositoryService.Get();
             return new ObjectResult(listSEORepository);
         }
 
@@ -34,7 +33,7 @@ namespace  LC_ServerSide_WebAPI.Controllers.Inventory
         public IActionResult Get(int seoId)
         {
             SeoRepository seoRepository = new SeoRepository();
-            seoRepository = seoRepositoryService.Get(seoId);
+            //seoRepository = seoRepositoryService.Get(seoId);
             return new ObjectResult(seoRepository);
         }
         
@@ -48,7 +47,7 @@ namespace  LC_ServerSide_WebAPI.Controllers.Inventory
                 {
                     return BadRequest();
                 }
-                seoRepositoryService.Add(value);
+                //seoRepositoryService.Add(value);
                 return new NoContentResult();
             }
             catch (Exception ex)
@@ -67,7 +66,7 @@ namespace  LC_ServerSide_WebAPI.Controllers.Inventory
                 {
                     return BadRequest();
                 }
-                seoRepositoryService.Update(value);
+                //seoRepositoryService.Update(value);
                 return new NoContentResult();
             }
             catch(Exception ex)
@@ -86,7 +85,7 @@ namespace  LC_ServerSide_WebAPI.Controllers.Inventory
                 {
                     return BadRequest();
                 }
-                seoRepositoryService.Remove(value);
+                //seoRepositoryService.Remove(value);
                 return new NoContentResult();
             }
             catch (Exception ex)

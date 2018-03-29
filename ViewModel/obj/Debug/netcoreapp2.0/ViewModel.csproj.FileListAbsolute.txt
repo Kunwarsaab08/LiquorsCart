@@ -1,9 +1,9 @@
 C:\Shekhar\LiquorsCart\ViewModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.deps.json
 C:\Shekhar\LiquorsCart\ViewModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.dll
 C:\Shekhar\LiquorsCart\ViewModel\bin\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.pdb
+C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\ViewModel.csprojResolveAssemblyReference.cache
 C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\ViewModel.csproj.CoreCompileInputs.cache
 C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\ViewModel.AssemblyInfoInputs.cache
 C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\ViewModel.AssemblyInfo.cs
 C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.dll
 C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\LiquorsCart.ServerSide.ViewModel.pdb
-C:\Shekhar\LiquorsCart\ViewModel\obj\Debug\netcoreapp2.0\ViewModel.csprojResolveAssemblyReference.cache

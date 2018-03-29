@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using DM = LiquorsCart.ServerSide.DataModel.Context;
-using LiquorsCart.ServerSide.Exceptions;
-using LiquorsCart.ServerSide.Exceptions.DatabaseExceptions;
+using Microsoft.EntityFrameworkCore;
+using CustomExceptions = LiquorsCart.ServerSide.Exceptions;
 
 namespace LiquorsCart.ServerSide.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public readonly DM.GenericDBcontext _context;
-        //private IGenericRepository<TEntity> _modelRepository;
+        public readonly GenericDBcontext _context;
+        
         private Dictionary<string, object> repositories;
 
-        public UnitOfWork(DM.GenericDBcontext context) => _context = context;
+        public UnitOfWork(GenericDBcontext context) => _context = context;
 
-        public UnitOfWork() => _context = new DM.GenericDBcontext();
+        public UnitOfWork() => _context = new GenericDBcontext();
 
         public GenericRepository<T> GenericRepository<T>() where T : class
         {
@@ -37,16 +36,11 @@ namespace LiquorsCart.ServerSide.Repository
             }
             catch(Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
         }
-
-        //public IGenericRepository<TEntity> ModelRepository
-        //{
-        //    get { return _modelRepository ?? (_modelRepository = new GenericRepository<TEntity>(_context)); }
-        //}
 
         public void Save()
         {
@@ -56,8 +50,8 @@ namespace LiquorsCart.ServerSide.Repository
             }
             catch(Exception ex)
             {
-                DatabaseException databaseException = new DatabaseException();
-                databaseException.Data.Add("CustomException", new CustomException(ex));
+                CustomExceptions.DatabaseExceptions.DatabaseException databaseException = new CustomExceptions.DatabaseExceptions.DatabaseException();
+                databaseException.Data.Add("CustomException", new CustomExceptions.CustomException(ex));
                 throw databaseException;
             }            
         }
@@ -80,6 +74,30 @@ namespace LiquorsCart.ServerSide.Repository
         {
             Dispose(true);
             System.GC.SuppressFinalize(this);
+        }
+
+        public void BeginTransaction(DbContext context)
+        {
+            if(context.Database.CurrentTransaction == null)
+            {
+                context.Database.BeginTransaction();
+            }
+        }
+
+        public void CommitTransaction(DbContext context)
+        {
+            if(context.Database.CurrentTransaction != null)
+            {
+                context.Database.CommitTransaction();
+            }
+        }
+
+        public void RollBackTransaction(DbContext context)
+        {
+            if (context.Database.CurrentTransaction != null)
+            {
+                context.Database.RollbackTransaction();
+            }
         }
     }
 }

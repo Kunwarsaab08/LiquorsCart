@@ -12,16 +12,16 @@ namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
             builder.ToTable("TypeCategoryMaster");
             builder.HasKey(m => m.TypeCategoryId);
             builder.Property(m => m.TypeCategoryId).HasColumnName("TypeCategoryId");
-            builder.Property(m => m.TypeCategoryName).IsRequired().HasColumnName("TypeCategoryName");
-            builder.Property(m => m.TypeCategoryDescription).IsRequired().HasColumnName("TypeCategoryDescription");
+            builder.Property(m => m.TypeCategoryName).HasColumnName("TypeCategoryName");
+            builder.Property(m => m.TypeCategoryDescription).HasColumnName("TypeCategoryDescription");
             builder.Property(m => m.TypeCategorySEOId).HasColumnName("TypeCategorySEOId");
             builder.Property(m => m.TypeCategoryImageId).HasColumnName("TypeCategoryImageId");
-            builder.Property(m => m.TypeCategoryIsParent).IsRequired().HasColumnName("TypeCategoryIsParent");
+            builder.Property(m => m.TypeCategoryIsParent).HasColumnName("TypeCategoryIsParent");
             builder.Property(m => m.TypeCategoryParentId).HasColumnName("TypeCategoryParentId");
-            builder.Property(m => m.TypeCategoryIsMenu).IsRequired().HasColumnName("TypeCategoryIsMenu");
-            builder.Property(m => m.TypeCategoryIsActive).IsRequired().HasColumnName("TypeCategoryIsActive");
+            builder.Property(m => m.TypeCategoryIsMenu).HasColumnName("TypeCategoryIsMenu");
+            builder.Property(m => m.TypeCategoryIsActive).HasColumnName("TypeCategoryIsActive");
             builder.Property(m => m.TypeCategoryCreatedDate).HasColumnName("TypeCategoryCreatedDate");
-            builder.Property(m => m.TypeCategoryChangeDate).IsRequired().HasColumnName("TypeCategoryChangedDate");
+            builder.Property(m => m.TypeCategoryChangeDate).HasColumnName("TypeCategoryChangedDate");
             builder.Property(m => m.TypeCategoryChangeBy).HasColumnName("TypeCategoryChangedBy");
         }
     }

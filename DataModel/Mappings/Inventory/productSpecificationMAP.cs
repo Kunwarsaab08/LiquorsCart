@@ -1,5 +1,4 @@
-﻿using System;
-using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

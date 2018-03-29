@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using LiquorsCart.ServerSide.DataModel;
-using LiquorsCart.ServerSide.DataModel.DataModels;
 
-namespace LiquorsCart.ServerSide.DataModel.Context
+namespace LiquorsCart.ServerSide.Repository
 {
     public class GenericDBcontext : DbContext
     {
-        //To ensure one instance will serve all request from a clent.
+        //To ensure one instance will serve all request from a client.
         private static bool _created = false;
         public GenericDBcontext()
         {
@@ -26,7 +24,7 @@ namespace LiquorsCart.ServerSide.DataModel.Context
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LiquorsCart;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
-        public new DbSet<TEntity> Set<TEntity>() where TEntity : MasterDM
+        public new DbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();
         }
@@ -38,8 +36,9 @@ namespace LiquorsCart.ServerSide.DataModel.Context
             // Interface that all of our Entity maps implement
             var mappingInterface = typeof(IEntityMappingConfiguration<>);
 
-            // Types that do entity mapping
-            var mappingTypes = this.GetType().GetTypeInfo().Assembly.GetTypes()
+            // Types that do entity mappingsss
+            var mappingTypes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(t => t.GetTypes())
                 .Where(x => x.GetInterfaces().Any(y => y.GetTypeInfo().IsGenericType && y.GetGenericTypeDefinition() == mappingInterface));
 
             // Get the generic Entity method of the ModelBuilder type

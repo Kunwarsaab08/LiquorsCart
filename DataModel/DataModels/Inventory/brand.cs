@@ -39,6 +39,6 @@ namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 
         public DateTime? BrandChangeDate { get; set; }
 
-        public int BrandChangeby { get; set; }
+        public Int64? BrandChangeby { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace Repository.UnitTest
             // get all models (all properties)
 
             List<SeoRepository> modelList =
-               seoRepo.Get(m => m.SeoId == 1);
+               seoRepo.Get(m => m.SeoId == 50002);
            // SeoRepository modelList = seoRepo.GetById(1);
         }
     }

@@ -10,13 +10,13 @@ namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
         {
             builder.ToTable("CategoryMappings");
             builder.HasKey(m => m.CategoryMappingId);
-            builder.Property(m => m.CategoryMappingId).HasColumnName("(CategoryMappingId");
+            builder.Property(m => m.CategoryMappingId).HasColumnName("CategoryMappingId");
             builder.Property(m => m.MainCategoryId).HasColumnName("CategoryId");
             builder.Property(m => m.SubCategoryId).HasColumnName("SubCategoryId");
             builder.Property(m => m.TypeCategoryId).HasColumnName("TypeCategoryId");
-            builder.Property(m => m.CategoryMappingIsActive).IsRequired().HasColumnName("CategoryMappingIsActive");
+            builder.Property(m => m.CategoryMappingIsActive).HasColumnName("CategoryMappingIsActive");
             builder.Property(m => m.CategoryMappingCreatedDate).HasColumnName("CategoryMappingCreatedDate ");
-            builder.Property(m => m.CategoryMappingChangeDate).IsRequired().HasColumnName("CategoryMappingChangedDate");
+            builder.Property(m => m.CategoryMappingChangeDate).HasColumnName("CategoryMappingChangedDate");
             builder.Property(m => m.CategoryChangeBy).HasColumnName("CategoryMappingChangedBy");
         }
     }

@@ -30,6 +30,6 @@ namespace LiquorsCart.ServerSide.DataModel.DataModels.Inventory
 
         public DateTime? CategoryMappingChangeDate { get; set; }
 
-        public int CategoryChangeBy { get; set; }
+        public Int64? CategoryChangeBy { get; set; }
     }
 }

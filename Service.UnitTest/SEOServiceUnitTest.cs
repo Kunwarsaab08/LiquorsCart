@@ -4,18 +4,40 @@ using DM = LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using VM = LiquorsCart.ServerSide.ViewModel.Inventory;
 using System;
 using AutoMapper;
+using LiquorsCart.ServerSide.Transformation;
 
 namespace Service.UnitTest
 {
     [TestClass]
-    public class SEOServiceUnitTest 
+    public class SEOServiceUnitTest:Profile
     {
+        public SEOServiceUnitTest()
+        {
+            MapperProfilesConfiguration.Configure();
+        }
+
+        [TestMethod]
+        public void SEORepoGetByID()
+        {
+            try
+            {
+                Int64 id = 1;
+                VM.SeoRepository seorepo = new VM.SeoRepository();
+                GenericService<VM.SeoRepository> seoService = new GenericService<VM.SeoRepository>();
+                seorepo = seoService.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
         [TestMethod]
         public void SEORepoDelete()
         {
             try
             {
-                Int64 id = 10002;
+                Int64 id = 2;
                 GenericService<VM.SeoRepository> seoService = new GenericService<VM.SeoRepository>();
                 seoService.Delete(id);                 
             }
@@ -30,12 +52,14 @@ namespace Service.UnitTest
         {
             try
             {
-                VM.SeoRepository seorepo = new VM.SeoRepository();
-                seorepo.SeoKeywords = "Test5";
-                seorepo.SeoDescriptionTag = "Test5";
-                seorepo.SeoMetaTag = "Test5";
-                seorepo.SeoPageTitle = "Test5";
-                
+                VM.SeoRepository seorepo = new VM.SeoRepository
+                {
+                    SeoKeywords = "Test7",
+                    SeoDescriptionTag = "Test7",
+                    SeoMetaTag = "Test7",
+                    SeoPageTitle = "Test7"
+                };
+
                 GenericService<VM.SeoRepository> seoService = new GenericService<VM.SeoRepository>();
                 seoService.Insert(seorepo);
             }
@@ -50,12 +74,14 @@ namespace Service.UnitTest
         {
             try
             {
-                VM.SeoRepository seorepo = new VM.SeoRepository();
-                seorepo.SeoId = 50002;
-                seorepo.SeoKeywords = "Test5";
-                seorepo.SeoDescriptionTag = "Test5";
-                seorepo.SeoMetaTag = "Test5";
-                seorepo.SeoPageTitle = "Test5";
+                VM.SeoRepository seorepo = new VM.SeoRepository
+                {
+                    SeoId = 2,
+                    SeoKeywords = "Test8",
+                    SeoDescriptionTag = "Test8",
+                    SeoMetaTag = "Test8",
+                    SeoPageTitle = "Test8"
+                };
 
                 GenericService<VM.SeoRepository> seoService = new GenericService<VM.SeoRepository>();
                 seoService.Update(seorepo);

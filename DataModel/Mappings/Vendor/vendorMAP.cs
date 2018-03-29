@@ -1,5 +1,4 @@
-﻿using System;
-using LiquorsCart.ServerSide.DataModel.DataModels.Vendor;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Vendor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,7 +11,7 @@ namespace LiquorsCart.ServerSide.DataModel.Mappings.Vendor
             builder.ToTable("VendorMaster");
             builder.HasKey(m => m.VendorID);
             builder.Property(m => m.VendorID).HasColumnName("VendorId");
-            builder.Property(m => m.VendorName).IsRequired().HasColumnName("VendorName");
+            builder.Property(m => m.VendorName).HasColumnName("VendorName");
             builder.Property(m => m.VendorAddress1).HasColumnName("VendorAddress1");
             builder.Property(m => m.VemdorAddress2).HasColumnName("VendorAddress2");
             builder.Property(m => m.VendorAddress3).HasColumnName("VendorAddress3");

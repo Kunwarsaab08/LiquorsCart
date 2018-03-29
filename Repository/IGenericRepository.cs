@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Collections.Generic;
 
 namespace LiquorsCart.ServerSide.Repository
 {
@@ -41,5 +41,9 @@ namespace LiquorsCart.ServerSide.Repository
         //Delete entity from DB by id
         //Parameter id
         void Delete(object id);
+
+        //Check entity exists in DB.
+        //Parameter entity
+        bool IsValidEntity(TEntity entity);
     }
 }

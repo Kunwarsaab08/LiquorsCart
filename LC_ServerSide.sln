@@ -21,7 +21,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC_ServerSide_WebAPI", "LC_ServerSide_WebAPI\LC_ServerSide_WebAPI.csproj", "{3D14CB1F-C483-4F55-9675-645BE27AED05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.UnitTest", "Service.UnitTest\Service.UnitTest.csproj", "{5A57D0B3-45DA-4751-BA52-EC5B71198B1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.UnitTest", "Service.UnitTest\Service.UnitTest.csproj", "{5A57D0B3-45DA-4751-BA52-EC5B71198B1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{530262F7-383C-428C-8650-B0E2EA1AA3FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBScripts", "DBScripts", "{70A36984-3EA9-4ED5-9976-330479CFCBDD}"
+	ProjectSection(SolutionItems) = preProject
+		ScalarFunctions_Create.sql = ScalarFunctions_Create.sql
+		ScalarFunctions_Drop.sql = ScalarFunctions_Drop.sql
+		Sequences_Create.sql = Sequences_Create.sql
+		Sequences_Drop.sql = Sequences_Drop.sql
+		SP_Create.sql = SP_Create.sql
+		Tables_Create.sql = Tables_Create.sql
+		Tables_Drop.sql = Tables_Drop.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +169,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70A36984-3EA9-4ED5-9976-330479CFCBDD} = {530262F7-383C-428C-8650-B0E2EA1AA3FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84D74C0A-5163-49C6-878C-23DFA237814E}

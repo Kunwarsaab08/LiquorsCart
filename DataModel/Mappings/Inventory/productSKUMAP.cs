@@ -1,5 +1,4 @@
-﻿using System;
-using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
+﻿using LiquorsCart.ServerSide.DataModel.DataModels.Inventory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,7 +11,7 @@ namespace LiquorsCart.ServerSide.DataModel.Mappings.Inventory
             builder.ToTable("SKUMaster");
             builder.HasKey(m => m.ProductSKUID);
             builder.Property(m => m.ProductSKUID).HasColumnName("SKUID");
-            builder.Property(m => m.ProductSKUCompanyId).IsRequired().HasColumnName("SKUCompanyID ");
+            builder.Property(m => m.ProductSKUCompanyId).HasColumnName("SKUCompanyID ");
             builder.Property(m => m.ProductSKUBrandId).HasColumnName("SKUBrandID");
             builder.Property(m => m.ProductSKUProductId).HasColumnName("SKUProductId");
             builder.Property(m => m.ProductSKUCategoryMappingId).HasColumnName("SKUCategoryMappingID");
